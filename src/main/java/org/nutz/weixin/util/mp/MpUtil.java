@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.sns;
+package org.nutz.weixin.util.mp;
 
 import org.nutz.json.Json;
 import org.nutz.lang.Strings;
