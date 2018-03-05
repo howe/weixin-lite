@@ -16,7 +16,7 @@ import org.nutz.weixin.bean.sns.resp.UserinfoResp;
 import org.nutz.weixin.util.HttpUtil;
 
 /**
- * 微信登录功能
+ * 微信网站登录功能
  * Created by Jianghao on 2018/3/5
  *
  * @howechiang

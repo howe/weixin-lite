@@ -31,4 +31,9 @@ public class Dict {
      * 获取用户个人信息（UnionID机制）
      */
     public static String WX_SNS_USERINFO = "/sns/userinfo";
+
+    /**
+     * 获取access_token
+     */
+    public static String WX_MP_TOKEN = "/cgi-bin/token";
 }
