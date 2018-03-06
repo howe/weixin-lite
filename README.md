@@ -1,4 +1,5 @@
 # Weixin Lite Tool
+[![Build Status](https://travis-ci.org/howe/weixin-lite.svg?branch=master)](https://travis-ci.org/howe/weixin-lite)
 Nutz 微信精简版工具包
 
 ```
@@ -37,3 +38,6 @@ Nutz 微信精简版工具包
     <version>1.r.66-SNAPSHOT</version>
 </dependency>
 ```
+
+### 进度
+应该不慢，按我各个项目模块来安排实现优先级
