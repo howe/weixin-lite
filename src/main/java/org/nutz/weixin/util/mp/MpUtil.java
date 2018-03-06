@@ -4,10 +4,14 @@ import org.nutz.json.Json;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
-import org.nutz.weixin.bean.Error;
+import org.nutz.weixin.bean.mp.Error;
+import org.nutz.weixin.bean.mp.req.GetcallbackipReq;
 import org.nutz.weixin.bean.mp.req.TokenReq;
+import org.nutz.weixin.bean.mp.resp.GetcallbackipResp;
 import org.nutz.weixin.bean.mp.resp.TokenResp;
 import org.nutz.weixin.util.HttpUtil;
+
+import java.util.List;
 
 /**
  * 微信公众平台功能
@@ -47,13 +51,40 @@ public class MpUtil {
                 throw new NullPointerException("appid为空");
             } else if (Strings.isBlank(req.getSecret())) {
                 throw new NullPointerException("secret为空");
-            } else if (Strings.equalsIgnoreCase(req.getGrantType(), "client_credential")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "client_credential")) {
                 throw new Exception("grant_type填client_credential");
             } else {
                 String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_MP_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&grant_type=" + req.getGrantType());
                 if (json.indexOf("access_token") >= 0) {
                     TokenResp resp = Json.fromJson(TokenResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw null;
+        }
+    }
+
+    /**
+     * 获取微信服务器IP地址
+     * 如果公众号基于安全等考虑，需要获知微信服务器的IP地址列表，以便进行相关限制，可以通过该接口获得微信服务器IP地址列表或者IP网段信息。
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static GetcallbackipResp getcallbackip(GetcallbackipReq req) {
+        try {
+            if (Strings.isBlank(req.getAccessToken())) {
+                throw new NullPointerException("access_token为空");
+            } else {
+                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_MP_GETCALLBACKIP + "?access_token=" + req.getAccessToken());
+                if (json.indexOf("ip_list") >= 0) {
+                    GetcallbackipResp resp = Json.fromJson(GetcallbackipResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);

@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
-import org.nutz.weixin.bean.Error;
+import org.nutz.weixin.bean.sns.Error;
 import org.nutz.weixin.bean.sns.req.AccessTokenReq;
 import org.nutz.weixin.bean.sns.req.RefreshTokenReq;
 import org.nutz.weixin.bean.sns.resp.AccessTokenResp;
@@ -72,9 +72,9 @@ public class Oauth2Util {
         try {
             if (Strings.isBlank(req.getAppid())) {
                 throw new NullPointerException("appid为空");
-            } else if ((Strings.isBlank(req.getRefreshToken()))) {
+            } else if (Strings.isBlank(req.getRefreshToken())) {
                 throw new NullPointerException("refresh_token为空");
-            } else if (Strings.equalsIgnoreCase(req.getGrantType(), "refresh_token")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "refresh_token")) {
                 throw new Exception("grant_type填refresh_token");
             } else {
                 String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +

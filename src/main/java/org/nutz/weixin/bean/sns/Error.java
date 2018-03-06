@@ -1,4 +1,4 @@
-package org.nutz.weixin.bean;
+package org.nutz.weixin.bean.sns;
 
 import org.nutz.lang.Lang;
 
@@ -149,6 +149,6 @@ public class Error {
                 return error;
             }
         }
-        return new Error(-1, "unknown", "未知");
+        return new Error(-99, "unknown", "未知");
     }
 }

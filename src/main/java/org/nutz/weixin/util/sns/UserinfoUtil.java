@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
-import org.nutz.weixin.bean.Error;
+import org.nutz.weixin.bean.sns.Error;
 import org.nutz.weixin.bean.sns.req.UserinfoReq;
 import org.nutz.weixin.bean.sns.resp.UserinfoResp;
 import org.nutz.weixin.util.HttpUtil;
@@ -28,7 +28,7 @@ public class UserinfoUtil {
      * 因此开发者应该自己在获取用户信息后，将头像图片保存下来，避免微信头像URL失效后的异常情况。
      *
      * @param req 参数
-     * @return 令牌
+     * @return 结果
      */
     public static UserinfoResp userinfo(UserinfoReq req) {
 

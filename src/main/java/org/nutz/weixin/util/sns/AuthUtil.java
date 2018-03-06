@@ -26,7 +26,7 @@ public class AuthUtil {
         try {
             if (Strings.isBlank(req.getAccessToken())) {
                 throw new NullPointerException("access_token为空");
-            } else if ((Strings.isBlank(req.getOpenid()))) {
+            } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
                 String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_SNS_AUTH + "?openid=" + req.getOpenid() +

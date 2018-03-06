@@ -36,4 +36,29 @@ public class Dict {
      * 获取access_token
      */
     public static String WX_MP_TOKEN = "/cgi-bin/token";
+
+    /**
+     * 获取微信服务器IP地址
+     */
+    public static String WX_MP_GETCALLBACKIP = "/cgi-bin/getcallbackip";
+
+    /**
+     * 添加客服帐号
+     */
+    public static String WX_MP_CUSTOMSERVICE_KFACCOUNT_ADD = "/customservice/kfaccount/add";
+
+    /**
+     * 修改客服帐号
+     */
+    public static String WX_MP_CUSTOMSERVICE_KFACCOUNT_UPDATE = "/customservice/kfaccount/update";
+
+    /**
+     * 删除客服帐号
+     */
+    public static String WX_MP_CUSTOMSERVICE_KFACCOUNT_DEL = "/customservice/kfaccount/del";
+
+    /**
+     * 统一下单
+     */
+    public static String WX_PAY_UNIFIEDORDER = "/pay/unifiedorder";
 }
