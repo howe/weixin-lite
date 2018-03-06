@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.pay.resp;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 
 /**
@@ -20,6 +21,7 @@ public class UnifiedorderResp extends Resp {
      * 说明详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">参数规定</a>
      */
     @Param("trade_type")
+    @JsonField("trade_type")
     private String tradeType;
 
     public String getTradeType() {
@@ -36,6 +38,7 @@ public class UnifiedorderResp extends Resp {
      * 微信生成的预支付会话标识，用于后续接口调用中使用，该值有效期为2小时
      */
     @Param("prepay_id")
+    @JsonField("prepay_id")
     private String prepayId;
 
     public String getPrepayId() {
@@ -52,6 +55,7 @@ public class UnifiedorderResp extends Resp {
      * trade_type为NATIVE时有返回，用于生成二维码，展示给用户进行扫码支付
      */
     @Param("code_url")
+    @JsonField("code_url")
     private String codeUrl;
 
     public String getCodeUrl() {

@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.sns.req;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 
 /**
@@ -13,6 +14,7 @@ public class UserinfoReq {
      * 调用凭证
      */
     @Param("access_token")
+    @JsonField("access_token")
     private String accessToken;
 
     public String getAccessToken() {

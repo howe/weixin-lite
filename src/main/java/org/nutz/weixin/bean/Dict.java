@@ -10,55 +10,65 @@ public class Dict {
     /**
      * 微信网关地址
      */
-    public static String WX_API_GATE = "https://api.weixin.qq.com";
+    public static String API_GATE = "https://api.weixin.qq.com";
 
     /**
      * 通过code获取access_token
      */
-    public static String WX_SNS_OAUTH2_ACCESS_TOKEN = "/sns/oauth2/access_token";
+    public static String SNS_OAUTH2_ACCESS_TOKEN = "/sns/oauth2/access_token";
 
     /**
      * 刷新或续期access_token使用
      */
-    public static String WX_SNS_OAUTH2_REFRESH_TOKEN = "/sns/oauth2/refresh_token";
+    public static String SNS_OAUTH2_REFRESH_TOKEN = "/sns/oauth2/refresh_token";
 
     /**
      * 检验授权凭证（access_token）是否有效
      */
-    public static String WX_SNS_AUTH = "/sns/auth";
+    public static String SNS_AUTH = "/sns/auth";
 
     /**
      * 获取用户个人信息（UnionID机制）
      */
-    public static String WX_SNS_USERINFO = "/sns/userinfo";
+    public static String SNS_USERINFO = "/sns/userinfo";
 
     /**
      * 获取access_token
      */
-    public static String WX_MP_TOKEN = "/cgi-bin/token";
+    public static String MP_TOKEN = "/cgi-bin/token";
 
     /**
      * 获取微信服务器IP地址
      */
-    public static String WX_MP_GETCALLBACKIP = "/cgi-bin/getcallbackip";
+    public static String MP_GETCALLBACKIP = "/cgi-bin/getcallbackip";
 
     /**
      * 添加客服帐号
      */
-    public static String WX_MP_CUSTOMSERVICE_KFACCOUNT_ADD = "/customservice/kfaccount/add";
+    public static String MP_CUSTOMSERVICE_KFACCOUNT_ADD = "/customservice/kfaccount/add";
 
     /**
      * 修改客服帐号
      */
-    public static String WX_MP_CUSTOMSERVICE_KFACCOUNT_UPDATE = "/customservice/kfaccount/update";
+    public static String MP_CUSTOMSERVICE_KFACCOUNT_UPDATE = "/customservice/kfaccount/update";
 
     /**
      * 删除客服帐号
      */
-    public static String WX_MP_CUSTOMSERVICE_KFACCOUNT_DEL = "/customservice/kfaccount/del";
+    public static String MP_CUSTOMSERVICE_KFACCOUNT_DEL = "/customservice/kfaccount/del";
 
     /**
      * 统一下单
      */
-    public static String WX_PAY_UNIFIEDORDER = "/pay/unifiedorder";
+    public static String PAY_UNIFIEDORDER = "/pay/unifiedorder";
+
+    /**
+     * 查询订单
+     */
+    public static String PAY_ORDERQUERY = "/pay/orderquery";
+
+    /**
+     * 关闭订单
+     */
+    public static String PAY_CLOSEORDER = "/pay/closeorder";
 }

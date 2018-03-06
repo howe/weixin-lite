@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.pay.resp;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 
 /**
@@ -30,6 +31,7 @@ public class Resp extends BaseResp {
      * 调用接口提交的商户号
      */
     @Param("mch_id")
+    @JsonField("mch_id")
     private String mchId;
 
     public String getMchId() {
@@ -46,6 +48,7 @@ public class Resp extends BaseResp {
      * 自定义参数，可以为请求支付的终端设备号等
      */
     @Param("device_info")
+    @JsonField("device_info")
     private String deviceInfo;
 
     public String getDeviceInfo() {
@@ -62,6 +65,7 @@ public class Resp extends BaseResp {
      * 微信返回的随机字符串
      */
     @Param("nonce_str")
+    @JsonField("nonce_str")
     private String nonceStr;
 
     public String getNonceStr() {
@@ -93,6 +97,7 @@ public class Resp extends BaseResp {
      * SUCCESS/FAIL
      */
     @Param("result_code")
+    @JsonField("result_code")
     private String resultCode;
 
     public String getResultCode() {
@@ -109,6 +114,7 @@ public class Resp extends BaseResp {
      * 详细参见下文错误列表
      */
     @Param("err_code")
+    @JsonField("err_code")
     private String errCode;
 
     public String getErrCode() {
@@ -125,6 +131,7 @@ public class Resp extends BaseResp {
      * 错误信息描述
      */
     @Param("err_code_des")
+    @JsonField("err_code_des")
     private String errCodeDes;
 
     public String getErrCodeDes() {

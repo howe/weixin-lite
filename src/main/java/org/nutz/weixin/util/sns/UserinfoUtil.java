@@ -1,6 +1,7 @@
 package org.nutz.weixin.util.sns;
 
 import org.nutz.json.Json;
+import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
@@ -19,6 +20,7 @@ public class UserinfoUtil {
 
     /**
      * 获取用户个人信息（UnionID机制）
+     * <p>
      * 此接口用于获取用户个人信息。开发者可通过OpenID来获取用户基本信息。
      * 特别需要注意的是，如果开发者拥有多个移动应用、网站应用和公众帐号，
      * 可通过获取用户基本信息中的unionid来区分用户的唯一性，
@@ -38,7 +40,7 @@ public class UserinfoUtil {
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
-                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_SNS_USERINFO + "?openid=" + req.getOpenid() +
+                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_USERINFO + "?openid=" + req.getOpenid() +
                         "&access_token=" + req.getAccessToken() + "&lang=" + req.getLang());
                 if (json.indexOf("openid") >= 0) {
                     UserinfoResp resp = Json.fromJson(UserinfoResp.class, json);
@@ -50,7 +52,7 @@ public class UserinfoUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw null;
+            throw Lang.wrapThrow(e);
         }
     }
 }

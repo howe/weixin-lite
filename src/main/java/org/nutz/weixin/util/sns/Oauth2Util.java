@@ -1,6 +1,7 @@
 package org.nutz.weixin.util.sns;
 
 import org.nutz.json.Json;
+import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
@@ -37,7 +38,7 @@ public class Oauth2Util {
             } else if (Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
-                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&code=" + req.getCode() + "&grant_type=" + req.getGrantType());
                 if (json.indexOf("access_token") >= 0) {
                     AccessTokenResp resp = Json.fromJson(AccessTokenResp.class, json);
@@ -77,7 +78,7 @@ public class Oauth2Util {
             } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "refresh_token")) {
                 throw new Exception("grant_type填refresh_token");
             } else {
-                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +
                         "&refresh_token=" + req.getRefreshToken() + "&grant_type=" + req.getGrantType());
                 if (json.indexOf("access_token") >= 0) {
                     RefreshTokenResp resp = Json.fromJson(RefreshTokenResp.class, json);
@@ -89,7 +90,7 @@ public class Oauth2Util {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw null;
+            throw Lang.wrapThrow(e);
         }
     }
 }

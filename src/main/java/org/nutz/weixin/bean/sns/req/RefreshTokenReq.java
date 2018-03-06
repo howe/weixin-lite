@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.sns.req;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 
 /**
@@ -25,7 +26,8 @@ public class RefreshTokenReq {
     /**
      * 填refresh_token
      */
-    @Param(("grant_type"))
+    @Param("grant_type")
+    @JsonField("grant_type")
     private String grantType;
 
     public String getGrantType() {
@@ -40,6 +42,7 @@ public class RefreshTokenReq {
      * 填写通过access_token获取到的refresh_token参数
      */
     @Param("refresh_token")
+    @JsonField("refresh_token")
     private String refreshToken;
 
     public String getRefreshToken() {

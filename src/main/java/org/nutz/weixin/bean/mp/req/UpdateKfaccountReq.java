@@ -54,7 +54,7 @@ public class UpdateKfaccountReq {
      * 	获取到的凭证
      */
     @Param("access_token")
-    @JsonField(ignore = true)
+    @JsonField(value = "access_token", ignore = true)
     private String accessToken;
 
     public String getAccessToken() {

@@ -1,6 +1,7 @@
 package org.nutz.weixin.util.mp;
 
 import org.nutz.json.Json;
+import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
@@ -54,7 +55,7 @@ public class MpUtil {
             } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "client_credential")) {
                 throw new Exception("grant_type填client_credential");
             } else {
-                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_MP_TOKEN + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&grant_type=" + req.getGrantType());
                 if (json.indexOf("access_token") >= 0) {
                     TokenResp resp = Json.fromJson(TokenResp.class, json);
@@ -66,7 +67,7 @@ public class MpUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw null;
+            throw Lang.wrapThrow(e);
         }
     }
 
@@ -82,7 +83,7 @@ public class MpUtil {
             if (Strings.isBlank(req.getAccessToken())) {
                 throw new NullPointerException("access_token为空");
             } else {
-                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_MP_GETCALLBACKIP + "?access_token=" + req.getAccessToken());
+                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_GETCALLBACKIP + "?access_token=" + req.getAccessToken());
                 if (json.indexOf("ip_list") >= 0) {
                     GetcallbackipResp resp = Json.fromJson(GetcallbackipResp.class, json);
                     return resp;
@@ -93,7 +94,7 @@ public class MpUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw null;
+            throw Lang.wrapThrow(e);
         }
     }
 }

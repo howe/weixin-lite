@@ -29,7 +29,7 @@ public class AuthUtil {
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
-                String json = HttpUtil.get(Dict.WX_API_GATE + Dict.WX_SNS_AUTH + "?openid=" + req.getOpenid() +
+                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_AUTH + "?openid=" + req.getOpenid() +
                         "&access_token=" + req.getAccessToken());
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
@@ -40,7 +40,7 @@ public class AuthUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw Lang.wrapThrow(e);
         }
     }
 }

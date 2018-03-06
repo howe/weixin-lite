@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.sns.req;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 
 /**
@@ -52,6 +53,7 @@ public class AccessTokenReq {
      * 填authorization_code
      */
     @Param("grant_type")
+    @JsonField("grant_type")
     private String grantType;
 
     public String getGrantType() {

@@ -122,4 +122,8 @@ public class UserinfoResp {
     public void setUnionid(String unionid) {
         this.unionid = unionid;
     }
+
+    public String getUnionid() {
+        return unionid;
+    }
 }

@@ -1,6 +1,5 @@
 package org.nutz.weixin.bean.pay;
 
-import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 
 import java.util.ArrayList;
@@ -101,7 +100,11 @@ public class Error {
             new Error("XML_FORMAT_ERROR", "XML格式错误", "XML格式错误", "请检查XML参数格式是否正确"),
             new Error("REQUIRE_POST_METHOD", "请使用post方法", "未使用post传递参数", "请检查请求参数是否通过post方法提交"),
             new Error("POST_DATA_EMPTY", "post数据为空", "post数据不能为空", "请检查post数据是否为空"),
-            new Error("NOT_UTF8", "编码格式错误", "未使用指定编码格式", "请使用UTF-8编码格式")
+            new Error("NOT_UTF8", "编码格式错误", "未使用指定编码格式", "请使用UTF-8编码格式"),
+            new Error("ORDERNOTEXIST", "此交易订单号不存在", "查询系统中不存在此交易订单号", "该API只能查提交支付交易返回成功的订单，请商户检查需要查询的订单号是否正确"),
+            new Error("ORDERPAID", "订单已支付", "订单已支付，不能发起关单", "订单已支付，不能发起关单，请当作已支付的正常交易"),
+            new Error("ORDERCLOSED", "订单已关闭", "订单已关闭，无法重复关闭", "订单已关闭，无需继续调用"),
+            new Error("XML_FORMAT_ERROR", "XML格式错误", "XML格式错误", "请检查XML参数格式是否正确")
     ));
 
     public static Error getError(String code) {

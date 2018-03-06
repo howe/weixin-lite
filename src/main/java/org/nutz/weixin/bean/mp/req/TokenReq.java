@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.mp.req;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 
 /**
@@ -13,6 +14,7 @@ public class TokenReq {
      * 	获取access_token填写client_credential
      */
     @Param("grant_type")
+    @JsonField("grant_type")
     private String grantType;
 
     public String getGrantType() {

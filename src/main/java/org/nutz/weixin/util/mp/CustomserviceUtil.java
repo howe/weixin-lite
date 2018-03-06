@@ -1,7 +1,6 @@
 package org.nutz.weixin.util.mp;
 
 import org.nutz.json.Json;
-import org.nutz.json.JsonFormat;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
@@ -39,7 +38,7 @@ public class CustomserviceUtil {
             } else if ((Strings.isBlank(req.getPassword()))) {
                 throw new NullPointerException("password为空");
             } else {
-                String json = HttpUtil.post(Dict.WX_API_GATE + Dict.WX_MP_CUSTOMSERVICE_KFACCOUNT_ADD + "?access_token=" + req.getAccessToken(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_ADD + "?access_token=" + req.getAccessToken(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;
@@ -49,7 +48,7 @@ public class CustomserviceUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw Lang.wrapThrow(e);
         }
     }
 
@@ -69,7 +68,7 @@ public class CustomserviceUtil {
             } else if ((Strings.isBlank(req.getPassword()))) {
                 throw new NullPointerException("password为空");
             } else {
-                String json = HttpUtil.post(Dict.WX_API_GATE + Dict.WX_MP_CUSTOMSERVICE_KFACCOUNT_UPDATE + "?access_token=" + req.getAccessToken(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_UPDATE + "?access_token=" + req.getAccessToken(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;
@@ -79,7 +78,7 @@ public class CustomserviceUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw Lang.wrapThrow(e);
         }
     }
 
@@ -99,7 +98,7 @@ public class CustomserviceUtil {
             } else if ((Strings.isBlank(req.getPassword()))) {
                 throw new NullPointerException("password为空");
             } else {
-                String json = HttpUtil.post(Dict.WX_API_GATE + Dict.WX_MP_CUSTOMSERVICE_KFACCOUNT_DEL + "?access_token=" + req.getAccessToken(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_DEL + "?access_token=" + req.getAccessToken(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;
@@ -109,7 +108,7 @@ public class CustomserviceUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw Lang.wrapThrow(e);
         }
     }
 }

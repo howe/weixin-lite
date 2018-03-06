@@ -1,5 +1,6 @@
 package org.nutz.weixin.bean.pay.req;
 
+import org.nutz.json.JsonField;
 import org.nutz.mvc.annotation.Param;
 import org.nutz.weixin.bean.pay.biz.SceneInfo;
 
@@ -14,6 +15,7 @@ public class UnifiedorderReq extends BaseReq {
      * 设备号
      */
     @Param("device_info")
+    @JsonField("device_info")
     private String deviceInfo;
 
     public String getDeviceInfo() {
@@ -22,47 +24,6 @@ public class UnifiedorderReq extends BaseReq {
 
     public void setDeviceInfo(String deviceInfo) {
         this.deviceInfo = deviceInfo;
-    }
-
-    /**
-     * 随机字符串
-     */
-    @Param("nonce_str")
-    private String nonceStr;
-
-    public String getNonceStr() {
-        return nonceStr;
-    }
-
-    public void setNonceStr(String nonceStr) {
-        this.nonceStr = nonceStr;
-    }
-
-    /**
-     * 签名
-     */
-    private String sign;
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
-    /**
-     * 签名类型
-     */
-    @Param("sign_type")
-    private String signType;
-
-    public String getSignType() {
-        return signType;
-    }
-
-    public void setSignType(String signType) {
-        this.signType = signType;
     }
 
     /**
@@ -108,6 +69,7 @@ public class UnifiedorderReq extends BaseReq {
      * 商户订单号
      */
     @Param("out_trade_no")
+    @JsonField("out_trade_no")
     private String outTradeNo;
 
     public String getOutTradeNo() {
@@ -120,8 +82,11 @@ public class UnifiedorderReq extends BaseReq {
 
     /**
      * 货币类型
+     * <p>
+     * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
     @Param("fee_type")
+    @JsonField("fee_type")
     private String feeType;
 
     public String getFeeType() {
@@ -134,15 +99,18 @@ public class UnifiedorderReq extends BaseReq {
 
     /**
      * 总金额
+     * <p>
+     * 订单总金额，单位为分，只能为整数，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
     @Param("total_fee")
-    private Integer totalFee;
+    @JsonField("total_fee")
+    private int totalFee;
 
-    public Integer getTotalFee() {
+    public int getTotalFee() {
         return totalFee;
     }
 
-    public void setTotalFee(Integer totalFee) {
+    public void setTotalFee(int totalFee) {
         this.totalFee = totalFee;
     }
 
@@ -150,6 +118,7 @@ public class UnifiedorderReq extends BaseReq {
      * 终端IP
      */
     @Param("spbill_create_ip")
+    @JsonField("spbill_create_ip")
     private String spbillCreateIp;
 
     public String getSpbillCreateIp() {
@@ -164,6 +133,7 @@ public class UnifiedorderReq extends BaseReq {
      * 交易起始时间
      */
     @Param("time_start")
+    @JsonField("time_start")
     private String timeStart;
 
     public String getTimeStart() {
@@ -178,6 +148,7 @@ public class UnifiedorderReq extends BaseReq {
      * 交易结束时间
      */
     @Param("time_expire")
+    @JsonField("time_expire")
     private String timeExpire;
 
     public String getTimeExpire() {
@@ -192,6 +163,7 @@ public class UnifiedorderReq extends BaseReq {
      * 订单优惠标记
      */
     @Param("goods_tag")
+    @JsonField("goods_tag")
     private String goodsTag;
 
     public String getGoodsTag() {
@@ -206,6 +178,7 @@ public class UnifiedorderReq extends BaseReq {
      * 通知地址
      */
     @Param("notify_url")
+    @JsonField("notify_url")
     private String notifyUrl;
 
     public String getNotifyUrl() {
@@ -220,6 +193,7 @@ public class UnifiedorderReq extends BaseReq {
      * 交易类型
      */
     @Param("trade_type")
+    @JsonField("trade_type")
     private String tradeType;
 
     public String getTradeType() {
@@ -234,6 +208,7 @@ public class UnifiedorderReq extends BaseReq {
      * 指定支付方式
      */
     @Param("limit_pay")
+    @JsonField("limit_pay")
     private String limitPay;
 
     public String getLimitPay() {
@@ -261,6 +236,7 @@ public class UnifiedorderReq extends BaseReq {
      * 场景信息
      */
     @Param("scene_info")
+    @JsonField("scene_info")
     private SceneInfo sceneInfo;
 
     public SceneInfo getSceneInfo() {

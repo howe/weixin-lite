@@ -14,6 +14,7 @@ public class DelKfaccountReq {
      * 客服账户
      */
     @Param("kf_account")
+    @JsonField("kf_account")
     private String kfAccount;
 
     public String getKfAccount() {
@@ -51,10 +52,10 @@ public class DelKfaccountReq {
     }
 
     /**
-     * 	获取到的凭证
+     * 获取到的凭证
      */
     @Param("access_token")
-    @JsonField(ignore = true)
+    @JsonField(value = "access_token", ignore = true)
     private String accessToken;
 
     public String getAccessToken() {
