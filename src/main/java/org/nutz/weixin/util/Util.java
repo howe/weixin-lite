@@ -55,7 +55,7 @@ public class Util {
     public static String mapToXml(Map<String, Object> map) {
         NutMap nutMap = new NutMap();
         for (Map.Entry<String, Object> m : map.entrySet()) {
-            nutMap.setv(Strings.hump2Line(m.getKey()), m.getValue());
+            nutMap.setv(Strings.hump2Line(m.getKey().replaceAll("$", "_$")), m.getValue());
         }
         return Xmls.mapToXml("xml", nutMap);
     }
@@ -63,8 +63,7 @@ public class Util {
     /**
      * 蛇形转驼峰
      *
-     * @param str
-     *            待转换字符串
+     * @param str 待转换字符串
      * @return 转换结果
      */
     public static String line2Hump(String str) {

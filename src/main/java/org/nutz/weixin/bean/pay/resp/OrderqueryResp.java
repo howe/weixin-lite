@@ -227,6 +227,57 @@ public class OrderqueryResp extends Resp {
     }
 
     /**
+     * 代金券类型
+     * <p>
+     * 开通免充值券功能，并且订单使用了优惠券后有返回（取值：CASH、NO_CASH）。$n为下标,从0开始编号，举例：coupon_type_$0
+     */
+    @Param("coupon_type_$0")
+    @JsonField("coupon_type_$0")
+    private String couponType$0;
+
+    public String getCouponType$0() {
+        return couponType$0;
+    }
+
+    public void setCouponType$0(String couponType$0) {
+        this.couponType$0 = couponType$0;
+    }
+
+    /**
+     * 代金券ID
+     * <p>
+     * 代金券ID, $n为下标，从0开始编号
+     */
+    @Param("coupon_id_$0")
+    @JsonField("coupon_id_$0")
+    private String couponId$0;
+
+    public String getCouponId$0() {
+        return couponId$0;
+    }
+
+    public void setCouponId$0(String couponId$0) {
+        this.couponId$0 = couponId$0;
+    }
+
+    /**
+     * 单个代金券支付金额
+     * <p>
+     * 单个代金券支付金额, $n为下标，从0开始编号
+     */
+    @Param("coupon_fee_$0")
+    @JsonField("coupon_fee_$0")
+    private int couponFee$0;
+
+    public int getCouponFee$0() {
+        return couponFee$0;
+    }
+
+    public void setCouponFee$0(int couponFee$0) {
+        this.couponFee$0 = couponFee$0;
+    }
+
+    /**
      * 微信订单号
      * <p>
      * 微信支付订单号

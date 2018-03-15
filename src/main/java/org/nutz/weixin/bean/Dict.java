@@ -23,6 +23,11 @@ public class Dict {
     public static String SNS_OAUTH2_REFRESH_TOKEN = "/sns/oauth2/refresh_token";
 
     /**
+     * 登录凭证校验
+     */
+    public static String SNS_JSCODE2SESSION = "/sns/jscode2session";
+
+    /**
      * 检验授权凭证（access_token）是否有效
      */
     public static String SNS_AUTH = "/sns/auth";
@@ -71,4 +76,9 @@ public class Dict {
      * 关闭订单
      */
     public static String PAY_CLOSEORDER = "/pay/closeorder";
+
+    /**
+     * 关闭订单
+     */
+    public static String PAY_REFUND = "/secapi/pay/refund";
 }
