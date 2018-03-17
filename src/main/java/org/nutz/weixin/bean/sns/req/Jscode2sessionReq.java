@@ -58,4 +58,14 @@ public class Jscode2sessionReq {
     public void setGrantType(String grantType) {
         this.grantType = grantType;
     }
+
+    public Jscode2sessionReq(String appid, String secret, String jsCode, String grantType) {
+        this.appid = appid;
+        this.secret = secret;
+        this.jsCode = jsCode;
+        this.grantType = grantType;
+    }
+
+    public Jscode2sessionReq() {
+    }
 }
