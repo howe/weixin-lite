@@ -1,6 +1,5 @@
 package org.nutz.weixin.util;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
@@ -13,7 +12,6 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.AlgorithmParameters;
-import java.security.Security;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -116,7 +114,6 @@ public class Util {
                 keyByte = temp;
             }
             // 初始化
-            Security.addProvider(new BouncyCastleProvider());
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BC");
             SecretKeySpec spec = new SecretKeySpec(keyByte, "AES");
             AlgorithmParameters parameters = AlgorithmParameters.getInstance("AES");
