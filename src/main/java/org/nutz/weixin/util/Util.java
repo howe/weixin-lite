@@ -1,12 +1,10 @@
 package org.nutz.weixin.util;
 
-import org.nutz.json.Json;
 import org.nutz.lang.Encoding;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.Xmls;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.sns.biz.DecryptionData;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -321,7 +319,7 @@ public class Util {
      * @param iv            解密算法初始向量
      * @return
      */
-    public static DecryptionData decryptionData(String encryptedData, String sessionKey, String iv) {
+    public static String decryptionData(String encryptedData, String sessionKey, String iv) {
 
         try {
             // 被加密的数据
@@ -346,8 +344,7 @@ public class Util {
             cipher.init(Cipher.DECRYPT_MODE, spec, parameters);// 初始化
             byte[] resultByte = cipher.doFinal(dataByte);
             if (!Lang.isEmpty(resultByte)) {
-                String result = new String(resultByte, "UTF-8");
-                return Json.fromJson(DecryptionData.class, result);
+                return new String(resultByte, "UTF-8");
             }
             throw new Exception("解析数据失败");
         } catch (Exception e) {

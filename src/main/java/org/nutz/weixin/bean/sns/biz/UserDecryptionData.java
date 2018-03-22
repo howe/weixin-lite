@@ -5,7 +5,7 @@ package org.nutz.weixin.bean.sns.biz;
  *
  * @author Jianghao(howechiang @ gmail.com)
  */
-public class DecryptionData {
+public class UserDecryptionData {
 
     /**
      * OPENID
