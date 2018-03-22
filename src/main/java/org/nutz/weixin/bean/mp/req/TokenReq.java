@@ -50,4 +50,19 @@ public class TokenReq {
     public void setSecret(String secret) {
         this.secret = secret;
     }
+
+    public TokenReq(String grantType, String appid, String secret) {
+        this.grantType = grantType;
+        this.appid = appid;
+        this.secret = secret;
+    }
+
+    public TokenReq(String appid, String secret) {
+        this.grantType = "client_credential";
+        this.appid = appid;
+        this.secret = secret;
+    }
+
+    public TokenReq() {
+    }
 }

@@ -54,4 +54,19 @@ public class UserinfoReq {
     public void setLang(String lang) {
         this.lang = lang;
     }
+
+    public UserinfoReq(String accessToken, String openid, String lang) {
+        this.accessToken = accessToken;
+        this.openid = openid;
+        this.lang = lang;
+    }
+
+    public UserinfoReq(String accessToken, String openid) {
+        this.accessToken = accessToken;
+        this.openid = openid;
+        this.lang = "zh-CN";
+    }
+
+    public UserinfoReq() {
+    }
 }

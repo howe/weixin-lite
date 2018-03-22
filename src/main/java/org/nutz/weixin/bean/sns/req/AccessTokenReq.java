@@ -63,4 +63,21 @@ public class AccessTokenReq {
     public void setGrantType(String grantType) {
         this.grantType = grantType;
     }
+
+    public AccessTokenReq(String appid, String secret, String code) {
+        this.appid = appid;
+        this.secret = secret;
+        this.code = code;
+        this.grantType = "authorization_code";
+    }
+
+    public AccessTokenReq(String appid, String secret, String code, String grantType) {
+        this.appid = appid;
+        this.secret = secret;
+        this.code = code;
+        this.grantType = grantType;
+    }
+
+    public AccessTokenReq() {
+    }
 }

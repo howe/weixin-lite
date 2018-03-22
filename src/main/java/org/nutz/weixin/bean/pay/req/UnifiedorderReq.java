@@ -246,4 +246,26 @@ public class UnifiedorderReq extends BaseReq {
     public void setSceneInfo(SceneInfo sceneInfo) {
         this.sceneInfo = sceneInfo;
     }
+
+    public UnifiedorderReq(String deviceInfo, String body, String detail, String attach, String outTradeNo, String feeType, int totalFee, String spbillCreateIp, String timeStart, String timeExpire, String goodsTag, String notifyUrl, String tradeType, String limitPay, String openid, SceneInfo sceneInfo) {
+        this.deviceInfo = deviceInfo;
+        this.body = body;
+        this.detail = detail;
+        this.attach = attach;
+        this.outTradeNo = outTradeNo;
+        this.feeType = feeType;
+        this.totalFee = totalFee;
+        this.spbillCreateIp = spbillCreateIp;
+        this.timeStart = timeStart;
+        this.timeExpire = timeExpire;
+        this.goodsTag = goodsTag;
+        this.notifyUrl = notifyUrl;
+        this.tradeType = tradeType;
+        this.limitPay = limitPay;
+        this.openid = openid;
+        this.sceneInfo = sceneInfo;
+    }
+
+    public UnifiedorderReq() {
+    }
 }

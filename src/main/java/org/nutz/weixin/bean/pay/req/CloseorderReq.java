@@ -26,4 +26,11 @@ public class CloseorderReq extends BaseReq {
     public void setOutTradeNo(String outTradeNo) {
         this.outTradeNo = outTradeNo;
     }
+
+    public CloseorderReq(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public CloseorderReq() {
+    }
 }

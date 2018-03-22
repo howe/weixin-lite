@@ -92,4 +92,15 @@ public class RefundqueryReq extends BaseReq {
     public void setOffset(int offset) {
         this.offset = offset;
     }
+
+    public RefundqueryReq(String transactionId, String outTradeNo, String outRefundNo, String refundId, int offset) {
+        this.transactionId = transactionId;
+        this.outTradeNo = outTradeNo;
+        this.outRefundNo = outRefundNo;
+        this.refundId = refundId;
+        this.offset = offset;
+    }
+
+    public RefundqueryReq() {
+    }
 }

@@ -43,4 +43,12 @@ public class OrderqueryReq extends BaseReq {
     public void setOutTradeNo(String outTradeNo) {
         this.outTradeNo = outTradeNo;
     }
+
+    public OrderqueryReq(String transactionId, String outTradeNo) {
+        this.transactionId = transactionId;
+        this.outTradeNo = outTradeNo;
+    }
+
+    public OrderqueryReq() {
+    }
 }

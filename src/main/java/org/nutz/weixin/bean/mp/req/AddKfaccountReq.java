@@ -65,4 +65,14 @@ public class AddKfaccountReq {
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
+
+    public AddKfaccountReq(String kfAccount, String nickname, String password, String accessToken) {
+        this.kfAccount = kfAccount;
+        this.nickname = nickname;
+        this.password = password;
+        this.accessToken = accessToken;
+    }
+
+    public AddKfaccountReq() {
+    }
 }

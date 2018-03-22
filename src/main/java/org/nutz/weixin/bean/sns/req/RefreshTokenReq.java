@@ -52,4 +52,13 @@ public class RefreshTokenReq {
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
+
+    public RefreshTokenReq(String appid, String grantType, String refreshToken) {
+        this.appid = appid;
+        this.grantType = grantType;
+        this.refreshToken = refreshToken;
+    }
+
+    public RefreshTokenReq() {
+    }
 }

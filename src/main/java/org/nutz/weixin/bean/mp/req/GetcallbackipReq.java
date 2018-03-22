@@ -24,4 +24,11 @@ public class GetcallbackipReq {
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
+
+    public GetcallbackipReq(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public GetcallbackipReq() {
+    }
 }

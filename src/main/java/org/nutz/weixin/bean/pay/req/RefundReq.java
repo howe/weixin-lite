@@ -149,4 +149,18 @@ public class RefundReq extends BaseReq {
     public void setRefundAccount(String refundAccount) {
         this.refundAccount = refundAccount;
     }
+
+    public RefundReq(String transactionId, String outTradeNo, String outRefundNo, int totalFee, int refundFee, String refundFeeType, String refundDesc, String refundAccount) {
+        this.transactionId = transactionId;
+        this.outTradeNo = outTradeNo;
+        this.outRefundNo = outRefundNo;
+        this.totalFee = totalFee;
+        this.refundFee = refundFee;
+        this.refundFeeType = refundFeeType;
+        this.refundDesc = refundDesc;
+        this.refundAccount = refundAccount;
+    }
+
+    public RefundReq() {
+    }
 }

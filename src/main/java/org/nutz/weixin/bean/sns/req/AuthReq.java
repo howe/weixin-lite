@@ -37,4 +37,12 @@ public class AuthReq {
     public void setOpenid(String openid) {
         this.openid = openid;
     }
+
+    public AuthReq(String accessToken, String openid) {
+        this.accessToken = accessToken;
+        this.openid = openid;
+    }
+
+    public AuthReq() {
+    }
 }

@@ -66,6 +66,13 @@ public class Jscode2sessionReq {
         this.grantType = grantType;
     }
 
+    public Jscode2sessionReq(String appid, String secret, String jsCode) {
+        this.appid = appid;
+        this.secret = secret;
+        this.jsCode = jsCode;
+        this.grantType = "authorization_code";
+    }
+
     public Jscode2sessionReq() {
     }
 }
