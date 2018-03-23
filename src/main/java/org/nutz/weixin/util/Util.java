@@ -340,7 +340,7 @@ public class Util {
             }
             // 初始化
             Security.addProvider(new BouncyCastleProvider());
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BC");
             SecretKeySpec spec = new SecretKeySpec(keyByte, "AES");
             AlgorithmParameters parameters = AlgorithmParameters.getInstance("AES");
             parameters.init(new IvParameterSpec(ivByte));
