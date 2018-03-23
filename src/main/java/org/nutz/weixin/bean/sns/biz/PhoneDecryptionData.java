@@ -59,25 +59,4 @@ public class PhoneDecryptionData {
         this.watermark = watermark;
     }
 
-    public class Watermark {
-        private String appid;
-
-        public String getAppid() {
-            return appid;
-        }
-
-        public void setAppid(String appid) {
-            this.appid = appid;
-        }
-
-        private long timestamp;
-
-        public long getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(long timestamp) {
-            this.timestamp = timestamp;
-        }
-    }
 }
