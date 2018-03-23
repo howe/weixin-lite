@@ -30,13 +30,13 @@ public class RefreshTokenResp {
      */
     @Param("expires_in")
     @JsonField("expires_in")
-    private long expiresIn;
+    private int expiresIn;
 
-    public long getExpiresIn() {
+    public int getExpiresIn() {
         return expiresIn;
     }
 
-    public void setExpiresIn(long expiresIn) {
+    public void setExpiresIn(int expiresIn) {
         this.expiresIn = expiresIn;
     }
 
