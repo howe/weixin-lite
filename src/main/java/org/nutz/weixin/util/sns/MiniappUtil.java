@@ -40,7 +40,7 @@ public class MiniappUtil {
                 throw new NullPointerException("secret为空");
             } else if (Strings.isBlank(req.getJsCode())) {
                 throw new NullPointerException("js_code为空");
-            } else if (Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_JSCODE2SESSION + "?appid=" + req.getAppid() +

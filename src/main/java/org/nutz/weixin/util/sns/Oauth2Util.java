@@ -35,7 +35,7 @@ public class Oauth2Util {
                 throw new NullPointerException("secret为空");
             } else if ((Strings.isBlank(req.getCode()))) {
                 throw new NullPointerException("code为空");
-            } else if (Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
