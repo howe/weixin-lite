@@ -1,5 +1,8 @@
 package org.nutz.weixin.bean.sns.resp;
 
+import org.nutz.json.JsonField;
+import org.nutz.mvc.annotation.Param;
+
 /**
  * Created by Jianghao on 2018/3/15
  *
@@ -23,6 +26,8 @@ public class Jscode2sessionResp {
     /**
      * 会话密钥
      */
+    @JsonField("session_key")
+    @Param("session_key")
     private String sessionKey;
 
     public String getSessionKey() {
