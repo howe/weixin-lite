@@ -1,6 +1,5 @@
 package org.nutz.weixin.util;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.nutz.lang.Encoding;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
@@ -14,7 +13,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.AlgorithmParameters;
-import java.security.Security;
+import java.security.Key;
+
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -339,9 +339,9 @@ public class Util {
                 keyByte = temp;
             }
             // 初始化
-            Security.addProvider(new BouncyCastleProvider());
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BC");
-            SecretKeySpec spec = new SecretKeySpec(keyByte, "AES");
+
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Key spec = new SecretKeySpec(keyByte, "AES");
             AlgorithmParameters parameters = AlgorithmParameters.getInstance("AES");
             parameters.init(new IvParameterSpec(ivByte));
             cipher.init(Cipher.DECRYPT_MODE, spec, parameters);// 初始化
