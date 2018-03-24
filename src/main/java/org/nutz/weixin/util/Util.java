@@ -30,6 +30,30 @@ import java.util.regex.Pattern;
 public class Util {
 
     /**
+     * @param obj
+     * @return
+     */
+    public static NutMap obj2nutmap(Object obj) {
+        NutMap map = new NutMap();
+        for (Map.Entry<String, Object> m : Lang.obj2nutmap(obj).entrySet()) {
+            map.setv(Strings.hump2Line(m.getKey().replaceAll("$", "_$")), m.getValue());
+        }
+        return map;
+    }
+
+    /**
+     * @param nutmap
+     * @return
+     */
+    public static NutMap nutmap2Hump(NutMap nutmap) {
+        NutMap map = new NutMap();
+        for (Map.Entry<String, Object> m : nutmap.entrySet()) {
+            map.setv(Strings.line2Hump(m.getKey()), m.getValue());
+        }
+        return map;
+    }
+
+    /**
      * 将一个下面格式的 XML:
      * <p>
      * <pre>
