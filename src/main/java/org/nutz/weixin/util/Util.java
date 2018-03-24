@@ -311,7 +311,7 @@ public class Util {
                 StringBuffer sb = new StringBuffer();
                 sb.append("appId=").append(appId);
                 sb.append("&nonceStr=").append(rp.getNonceStr());
-                sb.append("&package=").append(rp.get$package());
+                sb.append("&package=prepay_id=").append(rp.get$package());
                 sb.append("&signType=").append(rp.getSignType());
                 sb.append("&timeStamp=").append(rp.getTimeStamp());
                 sb.append("&key=").append(key);
