@@ -5,6 +5,7 @@ import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.Xmls;
 import org.nutz.lang.util.NutMap;
+import org.nutz.weixin.bean.pay.biz.RequestPayment4Miniapp;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -350,6 +351,38 @@ public class Util {
                 return new String(resultByte, "UTF-8");
             }
             throw new Exception("解析数据失败");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 微信小程序调起支付API签名方法
+     *
+     * @param appId 小程序ID
+     * @param rpm   参数对象
+     * @param key   支付密码
+     * @return 结果
+     */
+    public static String getRequestPaymentPaySign4Miniapp(String appId, RequestPayment4Miniapp rpm, String key) {
+        try {
+            if (Strings.isBlank(appId)) {
+                throw new NullPointerException("appId为空");
+            } else if (Strings.isBlank(key)) {
+                throw new NullPointerException("key为空");
+            } else if (Lang.isEmpty(rpm)) {
+                throw new NullPointerException("rpm为空");
+            } else {
+                StringBuffer sb = new StringBuffer();
+                sb.append("appId=").append(appId);
+                sb.append("&nonceStr=").append(rpm.getNonceStr());
+                sb.append("&package=").append(rpm.get$package());
+                sb.append("&signType=").append(rpm.getSignType());
+                sb.append("&timeStamp=").append(rpm.getTimeStamp());
+                sb.append("&key=").append(key);
+                return Lang.md5(sb.toString()).toUpperCase();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             throw Lang.wrapThrow(e);
