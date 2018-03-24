@@ -7,8 +7,10 @@ import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
 import org.nutz.weixin.bean.mp.Error;
 import org.nutz.weixin.bean.mp.req.GetcallbackipReq;
+import org.nutz.weixin.bean.mp.req.GetticketReq;
 import org.nutz.weixin.bean.mp.req.TokenReq;
 import org.nutz.weixin.bean.mp.resp.GetcallbackipResp;
+import org.nutz.weixin.bean.mp.resp.GetticketResp;
 import org.nutz.weixin.bean.mp.resp.TokenResp;
 import org.nutz.weixin.util.HttpUtil;
 
@@ -73,6 +75,7 @@ public class MpUtil {
 
     /**
      * 获取微信服务器IP地址
+     * <p>
      * 如果公众号基于安全等考虑，需要获知微信服务器的IP地址列表，以便进行相关限制，可以通过该接口获得微信服务器IP地址列表或者IP网段信息。
      *
      * @param req 参数
@@ -86,6 +89,37 @@ public class MpUtil {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.MP_GETCALLBACKIP + "?access_token=" + req.getAccessToken());
                 if (json.indexOf("ip_list") >= 0) {
                     GetcallbackipResp resp = Json.fromJson(GetcallbackipResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获取jsapi_ticket
+     * <p>
+     * 生成签名之前必须先了解一下jsapi_ticket，jsapi_ticket是公众号用于调用微信JS接口的临时票据。
+     * 正常情况下，jsapi_ticket的有效期为7200秒，通过access_token来获取。
+     * 由于获取jsapi_ticket的api调用次数非常有限，频繁刷新jsapi_ticket会导致api调用受限，影响自身业务，开发者必须在自己的服务全局缓存jsapi_ticket 。
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static GetticketResp getticket(GetticketReq req) {
+        try {
+            if (Strings.isBlank(req.getAccessToken())) {
+                throw new NullPointerException("access_token为空");
+            } else {
+
+                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TICKET_GETTICKET + "?access_token=" + req.getAccessToken() + "&type=" + req.getType());
+                if (json.indexOf("ticket") >= 0) {
+                    GetticketResp resp = Json.fromJson(GetticketResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);

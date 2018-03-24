@@ -1,5 +1,9 @@
 package org.nutz.weixin.bean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by Jianghao on 2018/3/5
  *
@@ -43,6 +47,11 @@ public class Dict {
     public static String MP_TOKEN = "/cgi-bin/token";
 
     /**
+     * 获取jsapi_ticket
+     */
+    public static String MP_TICKET_GETTICKET = "/cgi-bin/ticket/getticket";
+
+    /**
      * 获取微信服务器IP地址
      */
     public static String MP_GETCALLBACKIP = "/cgi-bin/getcallbackip";
@@ -81,4 +90,18 @@ public class Dict {
      * 关闭订单
      */
     public static String PAY_REFUND = "/secapi/pay/refund";
+
+    /**
+     * 微信JS接口
+     */
+    public static final List<String> jsApiList = new ArrayList<>(
+            Arrays.asList("onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ",
+                    "onMenuShareWeibo", "onMenuShareQZone", "startRecord", "stopRecord",
+                    "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice", "onVoicePlayEnd",
+                    "uploadVoice", "downloadVoice", "chooseImage", "previewImage", "uploadImage",
+                    "downloadImage", "translateVoice", "getNetworkType", "openLocation", "getLocation",
+                    "hideOptionMenu", "showOptionMenu", "hideMenuItems", "showMenuItems", "hideAllNonBaseMenuItem",
+                    "showAllNonBaseMenuItem", "closeWindow", "scanQRCode", "chooseWXPay", "openProductSpecificView",
+                    "addCard", "chooseCard", "openCard")
+    );
 }
