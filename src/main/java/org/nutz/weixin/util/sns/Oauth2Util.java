@@ -50,7 +50,7 @@ public class Oauth2Util {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw null;
+            throw Lang.wrapThrow(e);
         }
     }
 
