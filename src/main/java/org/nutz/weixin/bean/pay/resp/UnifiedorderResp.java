@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -20,16 +17,14 @@ public class UnifiedorderResp extends Resp {
      * <p>
      * 说明详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">参数规定</a>
      */
-    @Param("trade_type")
-    @JsonField("trade_type")
-    private String tradeType;
+    private String trade_type;
 
-    public String getTradeType() {
-        return tradeType;
+    public String getTrade_type() {
+        return trade_type;
     }
 
-    public void setTradeType(String tradeType) {
-        this.tradeType = tradeType;
+    public void setTrade_type(String trade_type) {
+        this.trade_type = trade_type;
     }
 
     /**
@@ -37,16 +32,14 @@ public class UnifiedorderResp extends Resp {
      * <p>
      * 微信生成的预支付会话标识，用于后续接口调用中使用，该值有效期为2小时
      */
-    @Param("prepay_id")
-    @JsonField("prepay_id")
-    private String prepayId;
+    private String prepay_id;
 
-    public String getPrepayId() {
-        return prepayId;
+    public String getPrepay_id() {
+        return prepay_id;
     }
 
-    public void setPrepayId(String prepayId) {
-        this.prepayId = prepayId;
+    public void setPrepay_id(String prepay_id) {
+        this.prepay_id = prepay_id;
     }
 
     /**
@@ -54,15 +47,13 @@ public class UnifiedorderResp extends Resp {
      * <p>
      * trade_type为NATIVE时有返回，用于生成二维码，展示给用户进行扫码支付
      */
-    @Param("code_url")
-    @JsonField("code_url")
-    private String codeUrl;
+    private String code_url;
 
-    public String getCodeUrl() {
-        return codeUrl;
+    public String getCode_url() {
+        return code_url;
     }
 
-    public void setCodeUrl(String codeUrl) {
-        this.codeUrl = codeUrl;
+    public void setCode_url(String code_url) {
+        this.code_url = code_url;
     }
 }

@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.sns.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/5
  *
@@ -52,30 +49,28 @@ public class AccessTokenReq {
     /**
      * 填authorization_code
      */
-    @Param("grant_type")
-    @JsonField("grant_type")
-    private String grantType;
+    private String grant_type;
 
-    public String getGrantType() {
-        return grantType;
+    public String getGrant_type() {
+        return grant_type;
     }
 
-    public void setGrantType(String grantType) {
-        this.grantType = grantType;
+    public void setGrant_type(String grant_type) {
+        this.grant_type = grant_type;
     }
 
     public AccessTokenReq(String appid, String secret, String code) {
         this.appid = appid;
         this.secret = secret;
         this.code = code;
-        this.grantType = "authorization_code";
+        this.grant_type = "authorization_code";
     }
 
-    public AccessTokenReq(String appid, String secret, String code, String grantType) {
+    public AccessTokenReq(String appid, String secret, String code, String grant_type) {
         this.appid = appid;
         this.secret = secret;
         this.code = code;
-        this.grantType = grantType;
+        this.grant_type = grant_type;
     }
 
     public AccessTokenReq() {

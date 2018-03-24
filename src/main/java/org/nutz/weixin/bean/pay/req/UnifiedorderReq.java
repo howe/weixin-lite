@@ -1,7 +1,5 @@
 package org.nutz.weixin.bean.pay.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
 import org.nutz.weixin.bean.pay.biz.SceneInfo;
 
 /**
@@ -14,16 +12,14 @@ public class UnifiedorderReq extends BaseReq {
     /**
      * 设备号
      */
-    @Param("device_info")
-    @JsonField("device_info")
-    private String deviceInfo;
+    private String device_info;
 
-    public String getDeviceInfo() {
-        return deviceInfo;
+    public String getDevice_info() {
+        return device_info;
     }
 
-    public void setDeviceInfo(String deviceInfo) {
-        this.deviceInfo = deviceInfo;
+    public void setDevice_info(String device_info) {
+        this.device_info = device_info;
     }
 
     /**
@@ -68,16 +64,14 @@ public class UnifiedorderReq extends BaseReq {
     /**
      * 商户订单号
      */
-    @Param("out_trade_no")
-    @JsonField("out_trade_no")
-    private String outTradeNo;
+    private String out_trade_no;
 
-    public String getOutTradeNo() {
-        return outTradeNo;
+    public String getOut_trade_no() {
+        return out_trade_no;
     }
 
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
+    public void setOut_trade_no(String out_trade_no) {
+        this.out_trade_no = out_trade_no;
     }
 
     /**
@@ -85,16 +79,14 @@ public class UnifiedorderReq extends BaseReq {
      * <p>
      * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
-    @Param("fee_type")
-    @JsonField("fee_type")
-    private String feeType;
+    private String fee_type;
 
-    public String getFeeType() {
-        return feeType;
+    public String getFee_type() {
+        return fee_type;
     }
 
-    public void setFeeType(String feeType) {
-        this.feeType = feeType;
+    public void setFee_type(String fee_type) {
+        this.fee_type = fee_type;
     }
 
     /**
@@ -102,121 +94,105 @@ public class UnifiedorderReq extends BaseReq {
      * <p>
      * 订单总金额，单位为分，只能为整数，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("total_fee")
-    @JsonField("total_fee")
-    private int totalFee;
+    private int total_fee;
 
-    public int getTotalFee() {
-        return totalFee;
+    public int getTotal_fee() {
+        return total_fee;
     }
 
-    public void setTotalFee(int totalFee) {
-        this.totalFee = totalFee;
+    public void setTotal_fee(int total_fee) {
+        this.total_fee = total_fee;
     }
 
     /**
      * 终端IP
      */
-    @Param("spbill_create_ip")
-    @JsonField("spbill_create_ip")
-    private String spbillCreateIp;
+    private String spbill_create_ip;
 
-    public String getSpbillCreateIp() {
-        return spbillCreateIp;
+    public String getSpbill_create_ip() {
+        return spbill_create_ip;
     }
 
-    public void setSpbillCreateIp(String spbillCreateIp) {
-        this.spbillCreateIp = spbillCreateIp;
+    public void setSpbill_create_ip(String spbill_create_ip) {
+        this.spbill_create_ip = spbill_create_ip;
     }
 
     /**
      * 交易起始时间
      */
-    @Param("time_start")
-    @JsonField("time_start")
-    private String timeStart;
+    private String time_start;
 
-    public String getTimeStart() {
-        return timeStart;
+    public String getTime_start() {
+        return time_start;
     }
 
-    public void setTimeStart(String timeStart) {
-        this.timeStart = timeStart;
+    public void setTime_start(String time_start) {
+        this.time_start = time_start;
     }
 
     /**
      * 交易结束时间
      */
-    @Param("time_expire")
-    @JsonField("time_expire")
-    private String timeExpire;
+    private String time_expire;
 
-    public String getTimeExpire() {
-        return timeExpire;
+    public String getTime_expire() {
+        return time_expire;
     }
 
-    public void setTimeExpire(String timeExpire) {
-        this.timeExpire = timeExpire;
+    public void setTime_expire(String time_expire) {
+        this.time_expire = time_expire;
     }
 
     /**
      * 订单优惠标记
      */
-    @Param("goods_tag")
-    @JsonField("goods_tag")
-    private String goodsTag;
+    private String goods_tag;
 
-    public String getGoodsTag() {
-        return goodsTag;
+    public String getGoods_tag() {
+        return goods_tag;
     }
 
-    public void setGoodsTag(String goodsTag) {
-        this.goodsTag = goodsTag;
+    public void setGoods_tag(String goods_tag) {
+        this.goods_tag = goods_tag;
     }
 
     /**
      * 通知地址
      */
-    @Param("notify_url")
-    @JsonField("notify_url")
-    private String notifyUrl;
+    private String notify_url;
 
-    public String getNotifyUrl() {
-        return notifyUrl;
+    public String getNotify_url() {
+        return notify_url;
     }
 
-    public void setNotifyUrl(String notifyUrl) {
-        this.notifyUrl = notifyUrl;
+    public void setNotify_url(String notify_url) {
+        this.notify_url = notify_url;
     }
 
     /**
      * 交易类型
      */
-    @Param("trade_type")
-    @JsonField("trade_type")
-    private String tradeType;
+    private String trade_type;
 
-    public String getTradeType() {
-        return tradeType;
+    public String getTrade_type() {
+        return trade_type;
     }
 
-    public void setTradeType(String tradeType) {
-        this.tradeType = tradeType;
+    public void setTrade_type(String trade_type) {
+        this.trade_type = trade_type;
     }
 
     /**
      * 指定支付方式
      */
-    @Param("limit_pay")
-    @JsonField("limit_pay")
-    private String limitPay;
+    private String limit_pay;
 
-    public String getLimitPay() {
-        return limitPay;
+    public String getLimit_pay() {
+        return limit_pay;
     }
 
-    public void setLimitPay(String limitPay) {
-        this.limitPay = limitPay;
+    public void setLimit_pay(String limit_pay) {
+        this.limit_pay = limit_pay;
     }
 
     /**
@@ -235,35 +211,33 @@ public class UnifiedorderReq extends BaseReq {
     /**
      * 场景信息
      */
-    @Param("scene_info")
-    @JsonField("scene_info")
-    private SceneInfo sceneInfo;
+    private SceneInfo scene_info;
 
-    public SceneInfo getSceneInfo() {
-        return sceneInfo;
+    public SceneInfo getScene_info() {
+        return scene_info;
     }
 
-    public void setSceneInfo(SceneInfo sceneInfo) {
-        this.sceneInfo = sceneInfo;
+    public void setScene_info(SceneInfo scene_info) {
+        this.scene_info = scene_info;
     }
 
-    public UnifiedorderReq(String deviceInfo, String body, String detail, String attach, String outTradeNo, String feeType, int totalFee, String spbillCreateIp, String timeStart, String timeExpire, String goodsTag, String notifyUrl, String tradeType, String limitPay, String openid, SceneInfo sceneInfo) {
-        this.deviceInfo = deviceInfo;
+    public UnifiedorderReq(String device_info, String body, String detail, String attach, String out_trade_no, String fee_type, int total_fee, String spbill_create_ip, String time_start, String time_expire, String goods_tag, String notify_url, String trade_type, String limit_pay, String openid, SceneInfo scene_info) {
+        this.device_info = device_info;
         this.body = body;
         this.detail = detail;
         this.attach = attach;
-        this.outTradeNo = outTradeNo;
-        this.feeType = feeType;
-        this.totalFee = totalFee;
-        this.spbillCreateIp = spbillCreateIp;
-        this.timeStart = timeStart;
-        this.timeExpire = timeExpire;
-        this.goodsTag = goodsTag;
-        this.notifyUrl = notifyUrl;
-        this.tradeType = tradeType;
-        this.limitPay = limitPay;
+        this.out_trade_no = out_trade_no;
+        this.fee_type = fee_type;
+        this.total_fee = total_fee;
+        this.spbill_create_ip = spbill_create_ip;
+        this.time_start = time_start;
+        this.time_expire = time_expire;
+        this.goods_tag = goods_tag;
+        this.notify_url = notify_url;
+        this.trade_type = trade_type;
+        this.limit_pay = limit_pay;
         this.openid = openid;
-        this.sceneInfo = sceneInfo;
+        this.scene_info = scene_info;
     }
 
     public UnifiedorderReq() {

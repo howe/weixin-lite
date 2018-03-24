@@ -31,14 +31,14 @@ public class CustomserviceUtil {
      */
     public static boolean addKfaccount(AddKfaccountReq req) {
         try {
-            if (Strings.isBlank(req.getKfAccount())) {
+            if (Strings.isBlank(req.getKf_account())) {
                 throw new NullPointerException("kf_account为空");
             } else if ((Strings.isBlank(req.getNickname()))) {
                 throw new NullPointerException("nickname为空");
             } else if ((Strings.isBlank(req.getPassword()))) {
                 throw new NullPointerException("password为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_ADD + "?access_token=" + req.getAccessToken(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_ADD + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;
@@ -61,14 +61,14 @@ public class CustomserviceUtil {
      */
     public static boolean updateKfaccount(UpdateKfaccountReq req) {
         try {
-            if (Strings.isBlank(req.getKfAccount())) {
+            if (Strings.isBlank(req.getKf_account())) {
                 throw new NullPointerException("kf_account为空");
             } else if ((Strings.isBlank(req.getNickname()))) {
                 throw new NullPointerException("nickname为空");
             } else if ((Strings.isBlank(req.getPassword()))) {
                 throw new NullPointerException("password为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_UPDATE + "?access_token=" + req.getAccessToken(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_UPDATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;
@@ -91,14 +91,14 @@ public class CustomserviceUtil {
      */
     public static boolean delKfaccount(DelKfaccountReq req) {
         try {
-            if (Strings.isBlank(req.getKfAccount())) {
+            if (Strings.isBlank(req.getKf_account())) {
                 throw new NullPointerException("kf_account为空");
             } else if ((Strings.isBlank(req.getNickname()))) {
                 throw new NullPointerException("nickname为空");
             } else if ((Strings.isBlank(req.getPassword()))) {
                 throw new NullPointerException("password为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_DEL + "?access_token=" + req.getAccessToken(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_DEL + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;

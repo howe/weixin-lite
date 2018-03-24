@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.sns.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/5
  *
@@ -13,46 +10,40 @@ public class RefreshTokenResp {
     /**
      * 接口调用凭证
      */
-    @Param("access_token")
-    @JsonField("access_token")
-    private String accessToken;
+    private String access_token;
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     /**
      * access_token接口调用凭证超时时间，单位（秒）
      */
-    @Param("expires_in")
-    @JsonField("expires_in")
-    private int expiresIn;
+    private int expires_in;
 
-    public int getExpiresIn() {
-        return expiresIn;
+    public int getExpires_in() {
+        return expires_in;
     }
 
-    public void setExpiresIn(int expiresIn) {
-        this.expiresIn = expiresIn;
+    public void setExpires_in(int expires_in) {
+        this.expires_in = expires_in;
     }
 
     /**
      * 用户刷新access_token
      */
-    @Param("refresh_token")
-    @JsonField("refresh_token")
-    private String refreshToken;
+    private String refresh_token;
 
-    public String getRefreshToken() {
-        return refreshToken;
+    public String getRefresh_token() {
+        return refresh_token;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setRefresh_token(String refresh_token) {
+        this.refresh_token = refresh_token;
     }
 
     /**

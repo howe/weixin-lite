@@ -5,7 +5,7 @@ package org.nutz.weixin.bean.pay.biz;
  *
  * @howechiang
  */
-public class RequestPayment4Miniapp {
+public class RequestPayment {
 
     /**
      * 时间戳从1970年1月1日00:00:00至今的秒数,即当前的时间
@@ -72,7 +72,7 @@ public class RequestPayment4Miniapp {
         this.paySign = paySign;
     }
 
-    public RequestPayment4Miniapp(long timeStamp, String nonceStr, String $package) {
+    public RequestPayment(long timeStamp, String nonceStr, String $package) {
         this.timeStamp = timeStamp;
         this.nonceStr = nonceStr;
         this.$package = $package;

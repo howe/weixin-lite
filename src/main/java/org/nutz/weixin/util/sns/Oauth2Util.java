@@ -35,11 +35,11 @@ public class Oauth2Util {
                 throw new NullPointerException("secret为空");
             } else if ((Strings.isBlank(req.getCode()))) {
                 throw new NullPointerException("code为空");
-            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
-                        "&secret=" + req.getSecret() + "&code=" + req.getCode() + "&grant_type=" + req.getGrantType());
+                        "&secret=" + req.getSecret() + "&code=" + req.getCode() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("access_token") >= 0) {
                     AccessTokenResp resp = Json.fromJson(AccessTokenResp.class, json);
                     return resp;
@@ -73,13 +73,13 @@ public class Oauth2Util {
         try {
             if (Strings.isBlank(req.getAppid())) {
                 throw new NullPointerException("appid为空");
-            } else if (Strings.isBlank(req.getRefreshToken())) {
+            } else if (Strings.isBlank(req.getRefresh_token())) {
                 throw new NullPointerException("refresh_token为空");
-            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "refresh_token")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "refresh_token")) {
                 throw new Exception("grant_type填refresh_token");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +
-                        "&refresh_token=" + req.getRefreshToken() + "&grant_type=" + req.getGrantType());
+                        "&refresh_token=" + req.getRefresh_token() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("access_token") >= 0) {
                     RefreshTokenResp resp = Json.fromJson(RefreshTokenResp.class, json);
                     return resp;

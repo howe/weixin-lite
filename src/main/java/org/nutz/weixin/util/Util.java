@@ -3,9 +3,8 @@ package org.nutz.weixin.util;
 import org.nutz.lang.Encoding;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
-import org.nutz.lang.Xmls;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.pay.biz.RequestPayment4Miniapp;
+import org.nutz.weixin.bean.pay.biz.RequestPayment;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -19,8 +18,6 @@ import java.security.Key;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by Jianghao on 2018/3/6
@@ -28,93 +25,6 @@ import java.util.regex.Pattern;
  * @howechiang
  */
 public class Util {
-
-    /**
-     * @param obj
-     * @return
-     */
-    public static NutMap obj2nutmap(Object obj) {
-        NutMap map = new NutMap();
-        for (Map.Entry<String, Object> m : Lang.obj2nutmap(obj).entrySet()) {
-            map.setv(Strings.hump2Line(m.getKey().replaceAll("$", "_$")), m.getValue());
-        }
-        return map;
-    }
-
-    /**
-     * @param nutmap
-     * @return
-     */
-    public static NutMap nutmap2Hump(NutMap nutmap) {
-        NutMap map = new NutMap();
-        for (Map.Entry<String, Object> m : nutmap.entrySet()) {
-            map.setv(Strings.line2Hump(m.getKey()), m.getValue());
-        }
-        return map;
-    }
-
-    /**
-     * 将一个下面格式的 XML:
-     * <p>
-     * <pre>
-     * &lt;xml&gt;
-     * &lt;key1&gt;value1&lt;/key1&gt;
-     * &lt;key2&gt;value2&lt;/key2&gt;
-     * &lt;/xml&gt;
-     * </pre>
-     * <p>
-     * 转换成一个 Map
-     *
-     * @param xml XML 字符串
-     * @return Map
-     */
-    public static NutMap xmlToMap(String xml) {
-        NutMap nutMap = Xmls.xmlToMap(xml);
-        NutMap map = new NutMap();
-        for (Map.Entry<String, Object> m : nutMap.entrySet()) {
-            map.setv(line2Hump(m.getKey()), m.getValue());
-        }
-        return map;
-    }
-
-    /**
-     * 将一个 Map 转换成 XML 类似:
-     * <p>
-     * <pre>
-     * &lt;xml&gt;
-     * &lt;key1&gt;value1&lt;/key1&gt;
-     * &lt;key2&gt;value2&lt;/key2&gt;
-     * &lt;/xml&gt;
-     * </pre>
-     *
-     * @param map Map
-     * @return XML 字符串
-     */
-    public static String mapToXml(Map<String, Object> map) {
-        NutMap nutMap = new NutMap();
-        for (Map.Entry<String, Object> m : map.entrySet()) {
-            nutMap.setv(Strings.hump2Line(m.getKey().replaceAll("$", "_$")), m.getValue());
-        }
-        return Xmls.mapToXml("xml", nutMap);
-    }
-
-    /**
-     * 蛇形转驼峰
-     * <p>
-     *
-     * @param str 待转换字符串
-     * @return 转换结果
-     */
-    public static String line2Hump(String str) {
-        str = str.toLowerCase();
-        Matcher matcher = Pattern.compile("_(\\w)").matcher(str);
-        StringBuffer sb = new StringBuffer();
-        while (matcher.find()) {
-            matcher.appendReplacement(sb, matcher.group(1).toUpperCase());
-        }
-        matcher.appendTail(sb);
-        return sb.toString();
-    }
 
     /**
      * 签名
@@ -389,7 +299,7 @@ public class Util {
      * @param key   支付密码
      * @return 结果
      */
-    public static String getRequestPaymentPaySign4Miniapp(String appId, RequestPayment4Miniapp rpm, String key) {
+    public static String getRequestPaymentPaySign(String appId, RequestPayment rpm, String key) {
         try {
             if (Strings.isBlank(appId)) {
                 throw new NullPointerException("appId为空");

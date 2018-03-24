@@ -36,41 +36,41 @@ public class Jscode2sessionReq {
     /**
      * 登录时获取的 code
      */
-    private String jsCode;
+    private String js_code;
 
-    public String getJsCode() {
-        return jsCode;
+    public String getJs_code() {
+        return js_code;
     }
 
-    public void setJsCode(String jsCode) {
-        this.jsCode = jsCode;
+    public void setJs_code(String js_code) {
+        this.js_code = js_code;
     }
 
     /**
      * 填写为 authorization_code
      */
-    private String grantType;
+    private String grant_type;
 
-    public String getGrantType() {
-        return grantType;
+    public String getGrant_type() {
+        return grant_type;
     }
 
-    public void setGrantType(String grantType) {
-        this.grantType = grantType;
+    public void setGrant_type(String grant_type) {
+        this.grant_type = grant_type;
     }
 
-    public Jscode2sessionReq(String appid, String secret, String jsCode, String grantType) {
+    public Jscode2sessionReq(String appid, String secret, String js_code, String grant_type) {
         this.appid = appid;
         this.secret = secret;
-        this.jsCode = jsCode;
-        this.grantType = grantType;
+        this.js_code = js_code;
+        this.grant_type = grant_type;
     }
 
-    public Jscode2sessionReq(String appid, String secret, String jsCode) {
+    public Jscode2sessionReq(String appid, String secret, String js_code) {
         this.appid = appid;
         this.secret = secret;
-        this.jsCode = jsCode;
-        this.grantType = "authorization_code";
+        this.js_code = js_code;
+        this.grant_type = "authorization_code";
     }
 
     public Jscode2sessionReq() {

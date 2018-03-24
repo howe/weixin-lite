@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.mp.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 import java.util.List;
 
 /**
@@ -15,15 +12,13 @@ public class GetcallbackipResp {
     /**
      * 微信服务器IP地址列表
      */
-    @Param("ip_list")
-    @JsonField("ip_list")
-    private List<String> ipList;
+    private List<String> ip_list;
 
-    public List<String> getIpList() {
-        return ipList;
+    public List<String> getIp_list() {
+        return ip_list;
     }
 
-    public void setIpList(List<String> ipList) {
-        this.ipList = ipList;
+    public void setIp_list(List<String> ip_list) {
+        this.ip_list = ip_list;
     }
 }

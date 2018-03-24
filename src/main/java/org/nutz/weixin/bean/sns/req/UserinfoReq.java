@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.sns.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/5
  *
@@ -13,16 +10,14 @@ public class UserinfoReq {
     /**
      * 调用凭证
      */
-    @Param("access_token")
-    @JsonField("access_token")
-    private String accessToken;
+    private String access_token;
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     /**
@@ -55,14 +50,14 @@ public class UserinfoReq {
         this.lang = lang;
     }
 
-    public UserinfoReq(String accessToken, String openid, String lang) {
-        this.accessToken = accessToken;
+    public UserinfoReq(String access_token, String openid, String lang) {
+        this.access_token = access_token;
         this.openid = openid;
         this.lang = lang;
     }
 
-    public UserinfoReq(String accessToken, String openid) {
-        this.accessToken = accessToken;
+    public UserinfoReq(String access_token, String openid) {
+        this.access_token = access_token;
         this.openid = openid;
         this.lang = "zh-CN";
     }

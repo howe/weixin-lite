@@ -13,16 +13,14 @@ public class TokenReq {
     /**
      * 	获取access_token填写client_credential
      */
-    @Param("grant_type")
-    @JsonField("grant_type")
-    private String grantType;
+    private String grant_type;
 
-    public String getGrantType() {
-        return grantType;
+    public String getGrant_type() {
+        return grant_type;
     }
 
-    public void setGrantType(String grantType) {
-        this.grantType = grantType;
+    public void setGrant_type(String grant_type) {
+        this.grant_type = grant_type;
     }
 
     /**
@@ -51,14 +49,14 @@ public class TokenReq {
         this.secret = secret;
     }
 
-    public TokenReq(String grantType, String appid, String secret) {
-        this.grantType = grantType;
+    public TokenReq(String grant_type, String appid, String secret) {
+        this.grant_type = grant_type;
         this.appid = appid;
         this.secret = secret;
     }
 
     public TokenReq(String appid, String secret) {
-        this.grantType = "client_credential";
+        this.grant_type = "client_credential";
         this.appid = appid;
         this.secret = secret;
     }

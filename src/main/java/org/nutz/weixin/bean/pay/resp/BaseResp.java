@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -17,16 +14,14 @@ public class BaseResp {
      * <p>
      * 此字段是通信标识，非交易标识，交易是否成功需要查看result_code来判断
      */
-    @Param("return_code")
-    @JsonField("return_code")
-    private String returnCode;
+    private String return_code;
 
-    public String getReturnCode() {
-        return returnCode;
+    public String getReturn_code() {
+        return return_code;
     }
 
-    public void setReturnCode(String returnCode) {
-        this.returnCode = returnCode;
+    public void setReturn_code(String return_code) {
+        this.return_code = return_code;
     }
 
     /**
@@ -34,15 +29,13 @@ public class BaseResp {
      * <p>
      * 返回信息，如非空，为错误原因
      */
-    @Param("return_msg")
-    @JsonField("return_msg")
-    private String returnMsg;
+    private String return_msg;
 
-    public String getReturnMsg() {
-        return returnMsg;
+    public String getReturn_msg() {
+        return return_msg;
     }
 
-    public void setReturnMsg(String returnMsg) {
-        this.returnMsg = returnMsg;
+    public void setReturn_msg(String return_msg) {
+        this.return_msg = return_msg;
     }
 }

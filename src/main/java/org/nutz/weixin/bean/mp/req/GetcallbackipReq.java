@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.mp.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -13,20 +10,18 @@ public class GetcallbackipReq {
     /**
      * 公众号的access_token
      */
-    @Param("access_token")
-    @JsonField("access_token")
-    private String accessToken;
+    private String access_token;
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
-    public GetcallbackipReq(String accessToken) {
-        this.accessToken = accessToken;
+    public GetcallbackipReq(String access_token) {
+        this.access_token = access_token;
     }
 
     public GetcallbackipReq() {

@@ -26,37 +26,32 @@ public class RefreshTokenReq {
     /**
      * 填refresh_token
      */
-    @Param("grant_type")
-    @JsonField("grant_type")
-    private String grantType;
+    private String grant_type;
 
-    public String getGrantType() {
-        return grantType;
+    public String getGrant_type() {
+        return grant_type;
     }
 
-    public void setGrantType(String grantType) {
-        this.grantType = grantType;
+    public void setGrant_type(String grant_type) {
+        this.grant_type = grant_type;
     }
 
     /**
      * 填写通过access_token获取到的refresh_token参数
      */
-    @Param("refresh_token")
-    @JsonField("refresh_token")
-    private String refreshToken;
-
-    public String getRefreshToken() {
-        return refreshToken;
+    private String refresh_token;
+    public String getRefresh_token() {
+        return refresh_token;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setRefresh_token(String refresh_token) {
+        this.refresh_token = refresh_token;
     }
 
-    public RefreshTokenReq(String appid, String grantType, String refreshToken) {
+    public RefreshTokenReq(String appid, String grant_type, String refresh_token) {
         this.appid = appid;
-        this.grantType = grantType;
-        this.refreshToken = refreshToken;
+        this.grant_type = grant_type;
+        this.refresh_token = refresh_token;
     }
 
     public RefreshTokenReq() {

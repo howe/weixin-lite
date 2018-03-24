@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.biz;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -10,15 +7,13 @@ import org.nutz.mvc.annotation.Param;
  */
 public class SceneInfo {
 
-    @Param("store_info")
-    @JsonField("store_info")
-    private Store storeInfo;
+    private Store store_info;
 
-    public Store getStoreInfo() {
-        return storeInfo;
+    public Store getStore_info() {
+        return store_info;
     }
 
-    public void setStoreInfo(Store storeInfo) {
-        this.storeInfo = storeInfo;
+    public void setStore_info(Store store_info) {
+        this.store_info = store_info;
     }
 }

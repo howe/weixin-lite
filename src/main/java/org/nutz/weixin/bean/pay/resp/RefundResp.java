@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/7
  *
@@ -15,16 +12,14 @@ public class RefundResp extends Resp {
      * <p>
      * 微信生成的订单号，在支付通知中有返回
      */
-    @Param("transaction_id")
-    @JsonField("transaction_id")
-    private String transactionId;
+    private String transaction_id;
 
-    public String getTransactionId() {
-        return transactionId;
+    public String getTransaction_id() {
+        return transaction_id;
     }
 
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+    public void setTransaction_id(String transaction_id) {
+        this.transaction_id = transaction_id;
     }
 
     /**
@@ -32,16 +27,14 @@ public class RefundResp extends Resp {
      * <p>
      * 商户系统内部订单号，要求32个字符内，只能是数字、大小写字母_-|*@ ，且在同一个商户号下唯一。
      */
-    @Param("out_trade_no")
-    @JsonField("out_trade_no")
-    private String outTradeNo;
+    private String out_trade_no;
 
-    public String getOutTradeNo() {
-        return outTradeNo;
+    public String getOut_trade_no() {
+        return out_trade_no;
     }
 
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
+    public void setOut_trade_no(String out_trade_no) {
+        this.out_trade_no = out_trade_no;
     }
 
     /**
@@ -49,16 +42,14 @@ public class RefundResp extends Resp {
      * <p>
      * 商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。
      */
-    @Param("out_refund_no")
-    @JsonField("out_refund_no")
-    private String outRefundNo;
+    private String out_refund_no;
 
-    public String getOutRefundNo() {
-        return outRefundNo;
+    public String getOut_refund_no() {
+        return out_refund_no;
     }
 
-    public void setOutRefundNo(String outRefundNo) {
-        this.outRefundNo = outRefundNo;
+    public void setOut_refund_no(String out_refund_no) {
+        this.out_refund_no = out_refund_no;
     }
 
     /**
@@ -66,16 +57,14 @@ public class RefundResp extends Resp {
      * <p>
      * 微信退款单号
      */
-    @Param("refund_id")
-    @JsonField("refund_id")
-    private String refundId;
+    private String refund_id;
 
-    public String getRefundId() {
-        return refundId;
+    public String getRefund_id() {
+        return refund_id;
     }
 
-    public void setRefundId(String refundId) {
-        this.refundId = refundId;
+    public void setRefund_id(String refund_id) {
+        this.refund_id = refund_id;
     }
 
     /**
@@ -83,33 +72,22 @@ public class RefundResp extends Resp {
      * <p>
      * 退款总金额,单位为分,可以做部分退款
      */
-    @Param("refund_fee")
-    @JsonField("refund_fee")
-    private int refundFee;
+    private int refund_fee;
 
-    public int getRefundFee() {
-        return refundFee;
-    }
-
-    public void setRefundFee(int refundFee) {
-        this.refundFee = refundFee;
-    }
 
     /**
      * 应结退款金额
      * <p>
      * 去掉非充值代金券退款金额后的退款金额，退款金额=申请退款金额-非充值代金券退款金额，退款金额<=申请退款金额
      */
-    @Param("settlement_refund_fee")
-    @JsonField("settlement_refund_fee")
-    private int settlementRefundFee;
+    private int settlement_refund_fee;
 
-    public int getSettlementRefundFee() {
-        return settlementRefundFee;
+    public int getRefund_fee() {
+        return refund_fee;
     }
 
-    public void setSettlementRefundFee(int settlementRefundFee) {
-        this.settlementRefundFee = settlementRefundFee;
+    public void setRefund_fee(int refund_fee) {
+        this.refund_fee = refund_fee;
     }
 
     /**
@@ -117,16 +95,14 @@ public class RefundResp extends Resp {
      * <p>
      * 订单总金额，单位为分，只能为整数，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("total_fee")
-    @JsonField("total_fee")
-    private int totalFee;
+    private int total_fee;
 
-    public int getTotalFee() {
-        return totalFee;
+    public int getSettlement_refund_fee() {
+        return settlement_refund_fee;
     }
 
-    public void setTotalFee(int totalFee) {
-        this.totalFee = totalFee;
+    public void setSettlement_refund_fee(int settlement_refund_fee) {
+        this.settlement_refund_fee = settlement_refund_fee;
     }
 
     /**
@@ -134,16 +110,14 @@ public class RefundResp extends Resp {
      * <p>
      * 去掉非充值代金券金额后的订单总金额，应结订单金额=订单金额-非充值代金券金额，应结订单金额<=订单金额。
      */
-    @Param("settlement_total_fee")
-    @JsonField("settlement_total_fee")
-    private int settlementTotalFee;
+    private int settlement_total_fee;
 
-    public int getSettlementTotalFee() {
-        return settlementTotalFee;
+    public int getTotal_fee() {
+        return total_fee;
     }
 
-    public void setSettlementTotalFee(int settlementTotalFee) {
-        this.settlementTotalFee = settlementTotalFee;
+    public void setTotal_fee(int total_fee) {
+        this.total_fee = total_fee;
     }
 
     /**
@@ -151,16 +125,14 @@ public class RefundResp extends Resp {
      * <p>
      * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
-    @Param("fee_type")
-    @JsonField("fee_type")
-    private String feeType;
+    private String fee_type;
 
-    public String getFeeType() {
-        return feeType;
+    public int getSettlement_total_fee() {
+        return settlement_total_fee;
     }
 
-    public void setFeeType(String feeType) {
-        this.feeType = feeType;
+    public void setSettlement_total_fee(int settlement_total_fee) {
+        this.settlement_total_fee = settlement_total_fee;
     }
 
     /**
@@ -168,16 +140,14 @@ public class RefundResp extends Resp {
      * <p>
      * 现金支付金额订单现金支付金额，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("cash_fee")
-    @JsonField("cash_fee")
-    private int cashFee;
+    private int cash_fee;
 
-    public int getCashFee() {
-        return cashFee;
+    public String getFee_type() {
+        return fee_type;
     }
 
-    public void setCashFee(int cashFee) {
-        this.cashFee = cashFee;
+    public void setFee_type(String fee_type) {
+        this.fee_type = fee_type;
     }
 
     /**
@@ -185,16 +155,14 @@ public class RefundResp extends Resp {
      * <p>
      * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
-    @Param("cash_fee_type")
-    @JsonField("cash_fee_type")
-    private String cashFeeType;
+    private String cash_fee_type;
 
-    public String getCashFeeType() {
-        return cashFeeType;
+    public int getCash_fee() {
+        return cash_fee;
     }
 
-    public void setCashFeeType(String cashFeeType) {
-        this.cashFeeType = cashFeeType;
+    public void setCash_fee(int cash_fee) {
+        this.cash_fee = cash_fee;
     }
 
     /**
@@ -202,16 +170,14 @@ public class RefundResp extends Resp {
      * <p>
      * 现金退款金额，单位为分，只能为整数，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("cash_refund_fee")
-    @JsonField("cash_refund_fee")
-    private int cashRefundFee;
+    private int cash_refund_fee;
 
-    public int getCashRefundFee() {
-        return cashRefundFee;
+    public String getCash_fee_type() {
+        return cash_fee_type;
     }
 
-    public void setCashRefundFee(int cashRefundFee) {
-        this.cashRefundFee = cashRefundFee;
+    public void setCash_fee_type(String cash_fee_type) {
+        this.cash_fee_type = cash_fee_type;
     }
 
     /**
@@ -219,30 +185,26 @@ public class RefundResp extends Resp {
      * <p>
      * 代金券退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为现金，说明详见<a href="https://pay.weixin.qq.com/wiki/doc/api/tools/sp_coupon.php?chapter=12_1">代金券或立减优惠</a>
      */
-    @Param("coupon_refund_fee")
-    @JsonField("coupon_refund_fee")
-    private int couponRefundFee;
+    private int coupon_refund_fee;
 
-    public int getCouponRefundFee() {
-        return couponRefundFee;
+    public int getCash_refund_fee() {
+        return cash_refund_fee;
     }
 
-    public void setCouponRefundFee(int couponRefundFee) {
-        this.couponRefundFee = couponRefundFee;
+    public void setCash_refund_fee(int cash_refund_fee) {
+        this.cash_refund_fee = cash_refund_fee;
     }
 
     /**
      * 退款代金券使用数量
      */
-    @Param("coupon_refund_count")
-    @JsonField("coupon_refund_count")
-    private int couponRefundCount;
+    private int coupon_refund_count;
 
-    public int getCouponRefundCount() {
-        return couponRefundCount;
+    public int getCoupon_refund_fee() {
+        return coupon_refund_fee;
     }
 
-    public void setCouponRefundCount(int couponRefundCount) {
-        this.couponRefundCount = couponRefundCount;
+    public void setCoupon_refund_fee(int coupon_refund_fee) {
+        this.coupon_refund_fee = coupon_refund_fee;
     }
 }

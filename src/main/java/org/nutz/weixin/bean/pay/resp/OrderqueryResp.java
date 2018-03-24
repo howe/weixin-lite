@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -30,16 +27,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 用户是否关注公众账号，Y-关注，N-未关注，仅在公众账号类型支付有效
      */
-    @Param("is_subscribe")
-    @JsonField("is_subscribe")
-    private String isSubscribe;
+    private String is_subscribe;
 
-    public String getIsSubscribe() {
-        return isSubscribe;
+    public String getIs_subscribe() {
+        return is_subscribe;
     }
 
-    public void setIsSubscribe(String isSubscribe) {
-        this.isSubscribe = isSubscribe;
+    public void setIs_subscribe(String is_subscribe) {
+        this.is_subscribe = is_subscribe;
     }
 
     /**
@@ -47,16 +42,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 调用接口提交的交易类型，取值如下：JSAPI，NATIVE，APP，MICROPAY，详细说明见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">参数规定</a>
      */
-    @Param("trade_type")
-    @JsonField("trade_type")
-    private String tradeType;
+    private String trade_type;
 
-    public String getTradeType() {
-        return tradeType;
+    public String getTrade_type() {
+        return trade_type;
     }
 
-    public void setTradeType(String tradeType) {
-        this.tradeType = tradeType;
+    public void setTrade_type(String trade_type) {
+        this.trade_type = trade_type;
     }
 
     /**
@@ -78,16 +71,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 支付状态机请见下单API页面
      */
-    @Param("trade_state")
-    @JsonField("trade_state")
-    private String tradeState;
+    private String trade_state;
 
-    public String getTradeState() {
-        return tradeState;
+    public String getTrade_state() {
+        return trade_state;
     }
 
-    public void setTradeState(String tradeState) {
-        this.tradeState = tradeState;
+    public void setTrade_state(String trade_state) {
+        this.trade_state = trade_state;
     }
 
     /**
@@ -95,16 +86,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 银行类型，采用字符串类型的银行标识
      */
-    @Param("bank_type")
-    @JsonField("bank_type")
-    private String bankType;
+    private String bank_type;
 
-    public String getBankType() {
-        return bankType;
+    public String getBank_type() {
+        return bank_type;
     }
 
-    public void setBankType(String bankType) {
-        this.bankType = bankType;
+    public void setBank_type(String bank_type) {
+        this.bank_type = bank_type;
     }
 
     /**
@@ -112,16 +101,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 订单总金额，单位为分
      */
-    @Param("total_fee")
-    @JsonField("total_fee")
-    private int totalFee;
+    private int total_fee;
 
-    public int getTotalFee() {
-        return totalFee;
+    public int getTotal_fee() {
+        return total_fee;
     }
 
-    public void setTotalFee(int totalFee) {
-        this.totalFee = totalFee;
+    public void setTotal_fee(int total_fee) {
+        this.total_fee = total_fee;
     }
 
     /**
@@ -129,16 +116,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 当订单使用了免充值型优惠券后返回该参数，应结订单金额=订单金额-免充值优惠券金额。
      */
-    @Param("settlement_total_fee")
-    @JsonField("settlement_total_fee")
-    private String settlementTotalFee;
+    private String settlement_total_fee;
 
-    public String getSettlementTotalFee() {
-        return settlementTotalFee;
+    public String getSettlement_total_fee() {
+        return settlement_total_fee;
     }
 
-    public void setSettlementTotalFee(String settlementTotalFee) {
-        this.settlementTotalFee = settlementTotalFee;
+    public void setSettlement_total_fee(String settlement_total_fee) {
+        this.settlement_total_fee = settlement_total_fee;
     }
 
     /**
@@ -146,16 +131,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
-    @Param("fee_type")
-    @JsonField("fee_type")
-    private String feeType;
+    private String fee_type;
 
-    public String getFeeType() {
-        return feeType;
+    public String getFee_type() {
+        return fee_type;
     }
 
-    public void setFeeType(String feeType) {
-        this.feeType = feeType;
+    public void setFee_type(String fee_type) {
+        this.fee_type = fee_type;
     }
 
     /**
@@ -163,16 +146,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 现金支付金额订单现金支付金额，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("cash_fee")
-    @JsonField("cash_fee")
-    private int cashFee;
+    private int cash_fee;
 
-    public int getCashFee() {
-        return cashFee;
+    public int getCash_fee() {
+        return cash_fee;
     }
 
-    public void setCashFee(int cashFee) {
-        this.cashFee = cashFee;
+    public void setCash_fee(int cash_fee) {
+        this.cash_fee = cash_fee;
     }
 
     /**
@@ -180,16 +161,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
-    @Param("cash_fee_type")
-    @JsonField("cash_fee_type")
-    private String cashFeeType;
+    private String cash_fee_type;
 
-    public String getCashFeeType() {
-        return cashFeeType;
+    public String getCash_fee_type() {
+        return cash_fee_type;
     }
 
-    public void setCashFeeType(String cashFeeType) {
-        this.cashFeeType = cashFeeType;
+    public void setCash_fee_type(String cash_fee_type) {
+        this.cash_fee_type = cash_fee_type;
     }
 
     /**
@@ -197,16 +176,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * “代金券”金额<=订单金额，订单金额-“代金券”金额=现金支付金额，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("coupon_fee")
-    @JsonField("coupon_fee")
-    private int couponFee;
+    private int coupon_fee;
 
-    public int getCouponFee() {
-        return couponFee;
+    public int getCoupon_fee() {
+        return coupon_fee;
     }
 
-    public void setCouponFee(int couponFee) {
-        this.couponFee = couponFee;
+    public void setCoupon_fee(int coupon_fee) {
+        this.coupon_fee = coupon_fee;
     }
 
     /**
@@ -214,16 +191,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 代金券使用数量
      */
-    @Param("coupon_count")
-    @JsonField("coupon_count")
-    private int couponCount;
+    private int coupon_count;
 
-    public int getCouponCount() {
-        return couponCount;
+    public int getCoupon_count() {
+        return coupon_count;
     }
 
-    public void setCouponCount(int couponCount) {
-        this.couponCount = couponCount;
+    public void setCoupon_count(int coupon_count) {
+        this.coupon_count = coupon_count;
     }
 
     /**
@@ -231,16 +206,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 开通免充值券功能，并且订单使用了优惠券后有返回（取值：CASH、NO_CASH）。$n为下标,从0开始编号，举例：coupon_type_$0
      */
-    @Param("coupon_type_$0")
-    @JsonField("coupon_type_$0")
-    private String couponType$0;
+    private String coupon_type_$0;
 
-    public String getCouponType$0() {
-        return couponType$0;
+    public String getCoupon_type_$0() {
+        return coupon_type_$0;
     }
 
-    public void setCouponType$0(String couponType$0) {
-        this.couponType$0 = couponType$0;
+    public void setCoupon_type_$0(String coupon_type_$0) {
+        this.coupon_type_$0 = coupon_type_$0;
     }
 
     /**
@@ -248,16 +221,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 代金券ID, $n为下标，从0开始编号
      */
-    @Param("coupon_id_$0")
-    @JsonField("coupon_id_$0")
-    private String couponId$0;
+    private String coupon_id_$0;
 
-    public String getCouponId$0() {
-        return couponId$0;
+    public String getCoupon_id_$0() {
+        return coupon_id_$0;
     }
 
-    public void setCouponId$0(String couponId$0) {
-        this.couponId$0 = couponId$0;
+    public void setCoupon_id_$0(String coupon_id_$0) {
+        this.coupon_id_$0 = coupon_id_$0;
     }
 
     /**
@@ -265,16 +236,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 单个代金券支付金额, $n为下标，从0开始编号
      */
-    @Param("coupon_fee_$0")
-    @JsonField("coupon_fee_$0")
-    private int couponFee$0;
+    private int coupon_fee_$0;
 
-    public int getCouponFee$0() {
-        return couponFee$0;
+    public int getCoupon_fee_$0() {
+        return coupon_fee_$0;
     }
 
-    public void setCouponFee$0(int couponFee$0) {
-        this.couponFee$0 = couponFee$0;
+    public void setCoupon_fee_$0(int coupon_fee_$0) {
+        this.coupon_fee_$0 = coupon_fee_$0;
     }
 
     /**
@@ -282,16 +251,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 微信支付订单号
      */
-    @Param("transaction_id")
-    @JsonField("transaction_id")
-    private String transactionId;
+    private String transaction_id;
 
-    public String getTransactionId() {
-        return transactionId;
+    public String getTransaction_id() {
+        return transaction_id;
     }
 
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+    public void setTransaction_id(String transaction_id) {
+        this.transaction_id = transaction_id;
     }
 
     /**
@@ -299,16 +266,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 商户系统内部订单号，要求32个字符内，只能是数字、大小写字母_-|*@ ，且在同一个商户号下唯一。
      */
-    @Param("out_trade_no")
-    @JsonField("out_trade_no")
-    private String outTradeNo;
+    private String out_trade_no;
 
-    public String getOutTradeNo() {
-        return outTradeNo;
+    public String getOut_trade_no() {
+        return out_trade_no;
     }
 
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
+    public void setOut_trade_no(String out_trade_no) {
+        this.out_trade_no = out_trade_no;
     }
 
     /**
@@ -331,16 +296,14 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 订单支付时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。其他详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">时间规则</a>
      */
-    @Param("time_end")
-    @JsonField("time_end")
-    private String timeEnd;
+    private String time_end;
 
-    public String getTimeEnd() {
-        return timeEnd;
+    public String getTime_end() {
+        return time_end;
     }
 
-    public void setTimeEnd(String timeEnd) {
-        this.timeEnd = timeEnd;
+    public void setTime_end(String time_end) {
+        this.time_end = time_end;
     }
 
     /**
@@ -348,15 +311,13 @@ public class OrderqueryResp extends Resp {
      * <p>
      * 对当前查询订单状态的描述和下一步操作的指引
      */
-    @Param("trade_state_desc")
-    @JsonField("trade_state_desc")
-    private String tradeStateDesc;
+    private String trade_state_desc;
 
-    public String getTradeStateDesc() {
-        return tradeStateDesc;
+    public String getTrade_state_desc() {
+        return trade_state_desc;
     }
 
-    public void setTradeStateDesc(String tradeStateDesc) {
-        this.tradeStateDesc = tradeStateDesc;
+    public void setTrade_state_desc(String trade_state_desc) {
+        this.trade_state_desc = trade_state_desc;
     }
 }

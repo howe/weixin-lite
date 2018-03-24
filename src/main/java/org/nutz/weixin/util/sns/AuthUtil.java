@@ -24,13 +24,13 @@ public class AuthUtil {
      */
     public static boolean auth(AuthReq req) {
         try {
-            if (Strings.isBlank(req.getAccessToken())) {
+            if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_AUTH + "?openid=" + req.getOpenid() +
-                        "&access_token=" + req.getAccessToken());
+                        "&access_token=" + req.getAccess_token());
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {
                     return true;

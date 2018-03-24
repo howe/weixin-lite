@@ -35,13 +35,13 @@ public class UserinfoUtil {
     public static UserinfoResp userinfo(UserinfoReq req) {
 
         try {
-            if (Strings.isBlank(req.getAccessToken())) {
+            if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_USERINFO + "?openid=" + req.getOpenid() +
-                        "&access_token=" + req.getAccessToken() + "&lang=" + req.getLang());
+                        "&access_token=" + req.getAccess_token() + "&lang=" + req.getLang());
                 if (json.indexOf("openid") >= 0) {
                     UserinfoResp resp = Json.fromJson(UserinfoResp.class, json);
                     return resp;

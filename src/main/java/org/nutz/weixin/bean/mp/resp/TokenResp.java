@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.mp.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created on 2018/3/5
  *
@@ -13,30 +10,26 @@ public class TokenResp {
     /**
      * 	获取到的凭证
      */
-    @Param("access_token")
-    @JsonField("access_token")
-    private String accessToken;
+    private String access_token;
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     /**
      * 失效时间
      */
-    @Param("expires_in")
-    @JsonField("expires_in")
-    private long expiresIn;
+    private long expires_in;
 
-    public long getExpiresIn() {
-        return expiresIn;
+    public long getExpires_in() {
+        return expires_in;
     }
 
-    public void setExpiresIn(long expiresIn) {
-        this.expiresIn = expiresIn;
+    public void setExpires_in(long expires_in) {
+        this.expires_in = expires_in;
     }
 }

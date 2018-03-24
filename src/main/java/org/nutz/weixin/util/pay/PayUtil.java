@@ -2,6 +2,7 @@ package org.nutz.weixin.util.pay;
 
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
+import org.nutz.lang.Xmls;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
 import org.nutz.weixin.bean.pay.Error;
@@ -38,36 +39,36 @@ public class PayUtil {
         try {
             if (Strings.isBlank(req.getAppid())) {
                 throw new NullPointerException("appid为空");
-            } else if (Strings.isBlank(req.getMchId())) {
+            } else if (Strings.isBlank(req.getMch_id())) {
                 throw new NullPointerException("mch_id为空");
-            } else if (Strings.isBlank(req.getNonceStr())) {
+            } else if (Strings.isBlank(req.getNonce_str())) {
                 throw new NullPointerException("nonce_str为空");
             } else if (Strings.isBlank(req.getSign())) {
                 throw new NullPointerException("sign为空");
-            } else if (!Strings.equalsIgnoreCase(req.getSignType(), "MD5")
-                    && !Strings.equalsIgnoreCase(req.getSignType(), "HMAC-SHA256")) {
+            } else if (!Strings.equalsIgnoreCase(req.getSign_type(), "MD5")
+                    && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else if (Strings.isBlank(req.getBody())) {
                 throw new NullPointerException("body为空");
-            } else if (Strings.isBlank(req.getOutTradeNo())) {
+            } else if (Strings.isBlank(req.getOut_trade_no())) {
                 throw new NullPointerException("out_trade_no为空");
-            } else if (!Strings.equalsIgnoreCase(req.getFeeType(), "CNY")) {
+            } else if (!Strings.equalsIgnoreCase(req.getFee_type(), "CNY")) {
                 throw new Exception("fee_type符合ISO 4217标准的三位字母代码，默认人民币：CNY，详细列表请参见货币类型");
-            } else if (Lang.isEmpty(req.getTotalFee())) {
+            } else if (Lang.isEmpty(req.getTotal_fee())) {
                 throw new NullPointerException("total_fee为空");
-            } else if (Strings.isBlank(req.getSpbillCreateIp())) {
+            } else if (Strings.isBlank(req.getSpbill_create_ip())) {
                 throw new NullPointerException("spbill_create_ip为空");
-            } else if (Strings.isBlank(req.getNotifyUrl())) {
+            } else if (Strings.isBlank(req.getNotify_url())) {
                 throw new NullPointerException("onotify_url为空");
-            } else if (Strings.isBlank(req.getTradeType())) {
+            } else if (Strings.isBlank(req.getTrade_type())) {
                 throw new NullPointerException("trade_type为空");
-            } else if (!Strings.equalsIgnoreCase(req.getTradeType(), "JSAPI")
-                    && !Strings.equalsIgnoreCase(req.getTradeType(), "NATIVE")
-                    && !Strings.equalsIgnoreCase(req.getTradeType(), "APP")) {
+            } else if (!Strings.equalsIgnoreCase(req.getTrade_type(), "JSAPI")
+                    && !Strings.equalsIgnoreCase(req.getTrade_type(), "NATIVE")
+                    && !Strings.equalsIgnoreCase(req.getTrade_type(), "APP")) {
                 throw new Exception("JSAPI--公众号支付、NATIVE--原生扫码支付、APP--app支付，统一下单接口trade_type的传参可参考这里");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_UNIFIEDORDER, Util.mapToXml(Lang.obj2nutmap(req)));
-                NutMap map = Util.xmlToMap(xml);
+                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_UNIFIEDORDER, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                         return Lang.map2Object(map, UnifiedorderResp.class);
@@ -106,20 +107,20 @@ public class PayUtil {
         try {
             if (Strings.isBlank(req.getAppid())) {
                 throw new NullPointerException("appid为空");
-            } else if (Strings.isBlank(req.getMchId())) {
+            } else if (Strings.isBlank(req.getMch_id())) {
                 throw new NullPointerException("mch_id为空");
-            } else if (Strings.isBlank(req.getTransactionId()) && Strings.isBlank(req.getOutTradeNo())) {
+            } else if (Strings.isBlank(req.getTransaction_id()) && Strings.isBlank(req.getOut_trade_no())) {
                 throw new Exception("transaction_id与out_trade_no二选一");
-            } else if (Strings.isBlank(req.getNonceStr())) {
+            } else if (Strings.isBlank(req.getNonce_str())) {
                 throw new NullPointerException("nonce_str为空");
             } else if (Strings.isBlank(req.getSign())) {
                 throw new NullPointerException("sign为空");
-            } else if (!Strings.equalsIgnoreCase(req.getSignType(), "MD5")
-                    && !Strings.equalsIgnoreCase(req.getSignType(), "HMAC-SHA256")) {
+            } else if (!Strings.equalsIgnoreCase(req.getSign_type(), "MD5")
+                    && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_ORDERQUERY, Util.mapToXml(Lang.obj2nutmap(req)));
-                NutMap map = Util.xmlToMap(xml);
+                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_ORDERQUERY, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                         return Lang.map2Object(map, OrderqueryResp.class);
@@ -150,20 +151,20 @@ public class PayUtil {
         try {
             if (Strings.isBlank(req.getAppid())) {
                 throw new NullPointerException("appid为空");
-            } else if (Strings.isBlank(req.getMchId())) {
+            } else if (Strings.isBlank(req.getMch_id())) {
                 throw new NullPointerException("mch_id为空");
-            } else if (Strings.isBlank(req.getOutTradeNo())) {
+            } else if (Strings.isBlank(req.getOut_trade_no())) {
                 throw new Exception("out_trade_no为空");
-            } else if (Strings.isBlank(req.getNonceStr())) {
+            } else if (Strings.isBlank(req.getNonce_str())) {
                 throw new NullPointerException("nonce_str为空");
             } else if (Strings.isBlank(req.getSign())) {
                 throw new NullPointerException("sign为空");
-            } else if (!Strings.equalsIgnoreCase(req.getSignType(), "MD5")
-                    && !Strings.equalsIgnoreCase(req.getSignType(), "HMAC-SHA256")) {
+            } else if (!Strings.equalsIgnoreCase(req.getSign_type(), "MD5")
+                    && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_CLOSEORDER, Util.mapToXml(Lang.obj2nutmap(req)));
-                NutMap map = Util.xmlToMap(xml);
+                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_CLOSEORDER, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                         return Lang.map2Object(map, CloseorderResp.class);
@@ -206,26 +207,26 @@ public class PayUtil {
         try {
             if (Strings.isBlank(req.getAppid())) {
                 throw new NullPointerException("appid为空");
-            } else if (Strings.isBlank(req.getMchId())) {
+            } else if (Strings.isBlank(req.getMch_id())) {
                 throw new NullPointerException("mch_id为空");
-            } else if (Strings.isBlank(req.getOutTradeNo()) && Strings.isBlank(req.getTransactionId())) {
+            } else if (Strings.isBlank(req.getOut_refund_no()) && Strings.isBlank(req.getTransaction_id())) {
                 throw new Exception("transaction_id与out_trade_no二选一");
-            } else if (Strings.isBlank(req.getNonceStr())) {
+            } else if (Strings.isBlank(req.getNonce_str())) {
                 throw new NullPointerException("nonce_str为空");
             } else if (Strings.isBlank(req.getSign())) {
                 throw new NullPointerException("sign为空");
-            } else if (Lang.isEmpty(req.getTotalFee())) {
+            } else if (Lang.isEmpty(req.getTotal_fee())) {
                 throw new NullPointerException("total_fee为空");
-            } else if (Lang.isEmpty(req.getRefundFee())) {
+            } else if (Lang.isEmpty(req.getRefund_fee())) {
                 throw new NullPointerException("refund_fee为空");
-            } else if (!Strings.equalsIgnoreCase(req.getRefundFeeType(), "CNY")) {
+            } else if (!Strings.equalsIgnoreCase(req.getRefund_fee_type(), "CNY")) {
                 throw new Exception("fee_type符合ISO 4217标准的三位字母代码，默认人民币：CNY，详细列表请参见货币类型");
-            } else if (!Strings.equalsIgnoreCase(req.getSignType(), "MD5")
-                    && !Strings.equalsIgnoreCase(req.getSignType(), "HMAC-SHA256")) {
+            } else if (!Strings.equalsIgnoreCase(req.getSign_type(), "MD5")
+                    && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_REFUND, Util.mapToXml(Lang.obj2nutmap(req)));
-                NutMap map = Util.xmlToMap(xml);
+                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_REFUND, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                         return Lang.map2Object(map, RefundResp.class);

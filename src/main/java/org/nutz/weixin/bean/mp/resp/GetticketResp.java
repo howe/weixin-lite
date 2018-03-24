@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.mp.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/24
  *
@@ -43,15 +40,13 @@ public class GetticketResp {
     /**
      * 失效时间
      */
-    @Param("expires_in")
-    @JsonField("expires_in")
-    private long expiresIn;
+    private long expires_in;
 
-    public long getExpiresIn() {
-        return expiresIn;
+    public long getExpires_in() {
+        return expires_in;
     }
 
-    public void setExpiresIn(long expiresIn) {
-        this.expiresIn = expiresIn;
+    public void setExpires_in(long expires_in) {
+        this.expires_in = expires_in;
     }
 }

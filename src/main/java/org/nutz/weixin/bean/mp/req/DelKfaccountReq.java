@@ -1,7 +1,6 @@
 package org.nutz.weixin.bean.mp.req;
 
 import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
 
 /**
  * Created by Jianghao on 2018/3/6
@@ -13,16 +12,14 @@ public class DelKfaccountReq {
     /**
      * 客服账户
      */
-    @Param("kf_account")
-    @JsonField("kf_account")
-    private String kfAccount;
+    private String kf_account;
 
-    public String getKfAccount() {
-        return kfAccount;
+    public String getKf_account() {
+        return kf_account;
     }
 
-    public void setKfAccount(String kfAccount) {
-        this.kfAccount = kfAccount;
+    public void setKf_account(String kf_account) {
+        this.kf_account = kf_account;
     }
 
     /**
@@ -54,23 +51,22 @@ public class DelKfaccountReq {
     /**
      * 获取到的凭证
      */
-    @Param("access_token")
-    @JsonField(value = "access_token", ignore = true)
-    private String accessToken;
+    @JsonField(ignore = true)
+    private String access_token;
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
     public DelKfaccountReq(String kfAccount, String nickname, String password, String accessToken) {
-        this.kfAccount = kfAccount;
+        this.kf_account = kfAccount;
         this.nickname = nickname;
         this.password = password;
-        this.accessToken = accessToken;
+        this.access_token = accessToken;
     }
 
     public DelKfaccountReq() {

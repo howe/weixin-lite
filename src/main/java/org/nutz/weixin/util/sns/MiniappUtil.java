@@ -38,13 +38,13 @@ public class MiniappUtil {
                 throw new NullPointerException("appid空");
             } else if (Strings.isBlank(req.getSecret())) {
                 throw new NullPointerException("secret为空");
-            } else if (Strings.isBlank(req.getJsCode())) {
+            } else if (Strings.isBlank(req.getJs_code())) {
                 throw new NullPointerException("js_code为空");
-            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "authorization_code")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_JSCODE2SESSION + "?appid=" + req.getAppid() +
-                        "&secret=" + req.getSecret() + "&js_code=" + req.getJsCode() + "&grant_type=" + req.getGrantType());
+                        "&secret=" + req.getSecret() + "&js_code=" + req.getJs_code() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("openid") >= 0) {
                     Jscode2sessionResp resp = Json.fromJson(Jscode2sessionResp.class, json);
                     return resp;

@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -15,16 +12,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 微信生成的订单号，在支付通知中有返回
      */
-    @Param("transaction_id")
-    @JsonField("transaction_id")
-    private String transactionId;
+    private String transaction_id;
 
-    public String getTransactionId() {
-        return transactionId;
+    public String getTransaction_id() {
+        return transaction_id;
     }
 
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+    public void setTransaction_id(String transaction_id) {
+        this.transaction_id = transaction_id;
     }
 
     /**
@@ -32,16 +27,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 商户系统内部订单号，要求32个字符内，只能是数字、大小写字母_-|*@ ，且在同一个商户号下唯一。
      */
-    @Param("out_trade_no")
-    @JsonField("out_trade_no")
-    private String outTradeNo;
+    private String out_trade_no;
 
-    public String getOutTradeNo() {
-        return outTradeNo;
+    public String getOut_trade_no() {
+        return out_trade_no;
     }
 
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
+    public void setOut_trade_no(String out_trade_no) {
+        this.out_trade_no = out_trade_no;
     }
 
     /**
@@ -49,16 +42,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。
      */
-    @Param("out_refund_no")
-    @JsonField("out_refund_no")
-    private String outRefundNo;
+    private String out_refund_no;
 
-    public String getOutRefundNo() {
-        return outRefundNo;
+    public String getOut_refund_no() {
+        return out_refund_no;
     }
 
-    public void setOutRefundNo(String outRefundNo) {
-        this.outRefundNo = outRefundNo;
+    public void setOut_refund_no(String out_refund_no) {
+        this.out_refund_no = out_refund_no;
     }
 
     /**
@@ -66,16 +57,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 订单总金额，单位为分，只能为整数，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("total_fee")
-    @JsonField("total_fee")
-    private int totalFee;
+    private int total_fee;
 
-    public int getTotalFee() {
-        return totalFee;
+    public int getTotal_fee() {
+        return total_fee;
     }
 
-    public void setTotalFee(int totalFee) {
-        this.totalFee = totalFee;
+    public void setTotal_fee(int total_fee) {
+        this.total_fee = total_fee;
     }
 
     /**
@@ -83,16 +72,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 退款总金额，订单总金额，单位为分，只能为整数，详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">支付金额</a>
      */
-    @Param("refund_fee")
-    @JsonField("refund_fee")
-    private int refundFee;
+    private int refund_fee;
 
-    public int getRefundFee() {
-        return refundFee;
+    public int getRefund_fee() {
+        return refund_fee;
     }
 
-    public void setRefundFee(int refundFee) {
-        this.refundFee = refundFee;
+    public void setRefund_fee(int refund_fee) {
+        this.refund_fee = refund_fee;
     }
 
     /**
@@ -100,16 +87,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2">货币类型</a>
      */
-    @Param("refund_fee_type")
-    @JsonField("refund_fee_type")
-    private String refundFeeType;
+    private String refund_fee_type;
 
-    public String getRefundFeeType() {
-        return refundFeeType;
+    public String getRefund_fee_type() {
+        return refund_fee_type;
     }
 
-    public void setRefundFeeType(String refundFeeType) {
-        this.refundFeeType = refundFeeType;
+    public void setRefund_fee_type(String refund_fee_type) {
+        this.refund_fee_type = refund_fee_type;
     }
 
     /**
@@ -117,16 +102,14 @@ public class RefundReq extends BaseReq {
      * <p>
      * 若商户传入，会在下发给用户的退款消息中体现退款原因
      */
-    @Param("refund_desc")
-    @JsonField("refund_desc")
-    private String refundDesc;
+    private String refund_desc;
 
-    public String getRefundDesc() {
-        return refundDesc;
+    public String getRefund_desc() {
+        return refund_desc;
     }
 
-    public void setRefundDesc(String refundDesc) {
-        this.refundDesc = refundDesc;
+    public void setRefund_desc(String refund_desc) {
+        this.refund_desc = refund_desc;
     }
 
     /**
@@ -138,27 +121,25 @@ public class RefundReq extends BaseReq {
      * <p>
      * REFUND_SOURCE_RECHARGE_FUNDS---可用余额退款
      */
-    @Param("refund_account")
-    @JsonField("refund_account")
-    private String refundAccount;
+    private String refund_account;
 
-    public String getRefundAccount() {
-        return refundAccount;
+    public String getRefund_account() {
+        return refund_account;
     }
 
-    public void setRefundAccount(String refundAccount) {
-        this.refundAccount = refundAccount;
+    public void setRefund_account(String refund_account) {
+        this.refund_account = refund_account;
     }
 
-    public RefundReq(String transactionId, String outTradeNo, String outRefundNo, int totalFee, int refundFee, String refundFeeType, String refundDesc, String refundAccount) {
-        this.transactionId = transactionId;
-        this.outTradeNo = outTradeNo;
-        this.outRefundNo = outRefundNo;
-        this.totalFee = totalFee;
-        this.refundFee = refundFee;
-        this.refundFeeType = refundFeeType;
-        this.refundDesc = refundDesc;
-        this.refundAccount = refundAccount;
+    public RefundReq(String transaction_id, String out_trade_no, String out_refund_no, int total_fee, int refund_fee, String refund_fee_type, String refund_desc, String refund_account) {
+        this.transaction_id = transaction_id;
+        this.out_trade_no = out_trade_no;
+        this.out_refund_no = out_refund_no;
+        this.total_fee = total_fee;
+        this.refund_fee = refund_fee;
+        this.refund_fee_type = refund_fee_type;
+        this.refund_desc = refund_desc;
+        this.refund_account = refund_account;
     }
 
     public RefundReq() {

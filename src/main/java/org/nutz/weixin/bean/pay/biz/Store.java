@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.biz;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -39,16 +36,14 @@ public class Store {
     /**
      * 门店所在地行政区划码，详细见<a href="https://pay.weixin.qq.com/wiki/doc/api/download/store_adress.csv">《最新县及县以上行政区划代码》</a>
      */
-    @Param("area_code")
-    @JsonField("area_code")
-    private String areaCode;
+    private String area_code;
 
-    public String getAreaCode() {
-        return areaCode;
+    public String getArea_code() {
+        return area_code;
     }
 
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode;
+    public void setArea_code(String area_code) {
+        this.area_code = area_code;
     }
 
     /**

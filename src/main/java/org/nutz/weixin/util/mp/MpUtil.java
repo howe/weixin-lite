@@ -54,11 +54,11 @@ public class MpUtil {
                 throw new NullPointerException("appid为空");
             } else if (Strings.isBlank(req.getSecret())) {
                 throw new NullPointerException("secret为空");
-            } else if (!Strings.equalsIgnoreCase(req.getGrantType(), "client_credential")) {
+            } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "client_credential")) {
                 throw new Exception("grant_type填client_credential");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TOKEN + "?appid=" + req.getAppid() +
-                        "&secret=" + req.getSecret() + "&grant_type=" + req.getGrantType());
+                        "&secret=" + req.getSecret() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("access_token") >= 0) {
                     TokenResp resp = Json.fromJson(TokenResp.class, json);
                     return resp;
@@ -83,10 +83,10 @@ public class MpUtil {
      */
     public static GetcallbackipResp getcallbackip(GetcallbackipReq req) {
         try {
-            if (Strings.isBlank(req.getAccessToken())) {
+            if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_GETCALLBACKIP + "?access_token=" + req.getAccessToken());
+                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_GETCALLBACKIP + "?access_token=" + req.getAccess_token());
                 if (json.indexOf("ip_list") >= 0) {
                     GetcallbackipResp resp = Json.fromJson(GetcallbackipResp.class, json);
                     return resp;
@@ -113,11 +113,11 @@ public class MpUtil {
      */
     public static GetticketResp getticket(GetticketReq req) {
         try {
-            if (Strings.isBlank(req.getAccessToken())) {
+            if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
 
-                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TICKET_GETTICKET + "?access_token=" + req.getAccessToken() + "&type=" + req.getType());
+                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TICKET_GETTICKET + "?access_token=" + req.getAccess_token() + "&type=" + req.getType());
                 if (json.indexOf("ticket") >= 0) {
                     GetticketResp resp = Json.fromJson(GetticketResp.class, json);
                     return resp;

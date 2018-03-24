@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.resp;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -30,16 +27,14 @@ public class Resp extends BaseResp {
      * <p>
      * 调用接口提交的商户号
      */
-    @Param("mch_id")
-    @JsonField("mch_id")
-    private String mchId;
+    private String mch_id;
 
-    public String getMchId() {
-        return mchId;
+    public String getMch_id() {
+        return mch_id;
     }
 
-    public void setMchId(String mchId) {
-        this.mchId = mchId;
+    public void setMch_id(String mch_id) {
+        this.mch_id = mch_id;
     }
 
     /**
@@ -47,16 +42,14 @@ public class Resp extends BaseResp {
      * <p>
      * 自定义参数，可以为请求支付的终端设备号等
      */
-    @Param("device_info")
-    @JsonField("device_info")
-    private String deviceInfo;
+    private String device_info;
 
-    public String getDeviceInfo() {
-        return deviceInfo;
+    public String getDevice_info() {
+        return device_info;
     }
 
-    public void setDeviceInfo(String deviceInfo) {
-        this.deviceInfo = deviceInfo;
+    public void setDevice_info(String device_info) {
+        this.device_info = device_info;
     }
 
     /**
@@ -64,16 +57,14 @@ public class Resp extends BaseResp {
      * <p>
      * 微信返回的随机字符串
      */
-    @Param("nonce_str")
-    @JsonField("nonce_str")
-    private String nonceStr;
+    private String nonce_str;
 
-    public String getNonceStr() {
-        return nonceStr;
+    public String getNonce_str() {
+        return nonce_str;
     }
 
-    public void setNonceStr(String nonceStr) {
-        this.nonceStr = nonceStr;
+    public void setNonce_str(String nonce_str) {
+        this.nonce_str = nonce_str;
     }
 
     /**
@@ -96,16 +87,14 @@ public class Resp extends BaseResp {
      * <p>
      * SUCCESS/FAIL
      */
-    @Param("result_code")
-    @JsonField("result_code")
-    private String resultCode;
+    private String result_code;
 
-    public String getResultCode() {
-        return resultCode;
+    public String getResult_code() {
+        return result_code;
     }
 
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setResult_code(String result_code) {
+        this.result_code = result_code;
     }
 
     /**
@@ -113,16 +102,14 @@ public class Resp extends BaseResp {
      * <p>
      * 详细参见下文错误列表
      */
-    @Param("err_code")
-    @JsonField("err_code")
-    private String errCode;
+    private String err_code;
 
-    public String getErrCode() {
-        return errCode;
+    public String getErr_code() {
+        return err_code;
     }
 
-    public void setErrCode(String errCode) {
-        this.errCode = errCode;
+    public void setErr_code(String err_code) {
+        this.err_code = err_code;
     }
 
     /**
@@ -130,15 +117,13 @@ public class Resp extends BaseResp {
      * <p>
      * 错误信息描述
      */
-    @Param("err_code_des")
-    @JsonField("err_code_des")
-    private String errCodeDes;
+    private String err_code_des;
 
-    public String getErrCodeDes() {
-        return errCodeDes;
+    public String getErr_code_des() {
+        return err_code_des;
     }
 
-    public void setErrCodeDes(String errCodeDes) {
-        this.errCodeDes = errCodeDes;
+    public void setErr_code_des(String err_code_des) {
+        this.err_code_des = err_code_des;
     }
 }

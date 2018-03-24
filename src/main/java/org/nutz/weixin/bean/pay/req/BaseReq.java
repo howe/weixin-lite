@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.pay.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/6
  *
@@ -26,16 +23,14 @@ public class BaseReq {
     /**
      * 商户号
      */
-    @Param("mch_id")
-    @JsonField("mch_id")
-    private String mchId;
+    private String mch_id;
 
-    public String getMchId() {
-        return mchId;
+    public String getMch_id() {
+        return mch_id;
     }
 
-    public void setMchId(String mchId) {
-        this.mchId = mchId;
+    public void setMch_id(String mch_id) {
+        this.mch_id = mch_id;
     }
 
     /**
@@ -43,16 +38,14 @@ public class BaseReq {
      * <p>
      * 随机字符串，不长于32位。推荐<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3">随机数生成算法</a>
      */
-    @Param("nonce_str")
-    @JsonField("nonce_str")
-    private String nonceStr;
+    private String nonce_str;
 
-    public String getNonceStr() {
-        return nonceStr;
+    public String getNonce_str() {
+        return nonce_str;
     }
 
-    public void setNonceStr(String nonceStr) {
-        this.nonceStr = nonceStr;
+    public void setNonce_str(String nonce_str) {
+        this.nonce_str = nonce_str;
     }
 
     /**
@@ -75,15 +68,13 @@ public class BaseReq {
      * <p>
      * 签名类型，目前支持HMAC-SHA256和MD5，默认为MD5
      */
-    @Param("sign_type")
-    @JsonField("sign_type")
-    private String signType;
+    private String sign_type;
 
-    public String getSignType() {
-        return signType;
+    public String getSign_type() {
+        return sign_type;
     }
 
-    public void setSignType(String signType) {
-        this.signType = signType;
+    public void setSign_type(String sign_type) {
+        this.sign_type = sign_type;
     }
 }
