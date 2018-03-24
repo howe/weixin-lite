@@ -295,25 +295,25 @@ public class Util {
      * 微信小程序调起支付API签名方法
      *
      * @param appId 小程序ID
-     * @param rpm   参数对象
+     * @param rp    参数对象
      * @param key   支付密码
      * @return 结果
      */
-    public static String getRequestPaymentPaySign(String appId, RequestPayment rpm, String key) {
+    public static String getRequestPaymentPaySign(String appId, RequestPayment rp, String key) {
         try {
             if (Strings.isBlank(appId)) {
                 throw new NullPointerException("appId为空");
             } else if (Strings.isBlank(key)) {
                 throw new NullPointerException("key为空");
-            } else if (Lang.isEmpty(rpm)) {
+            } else if (Lang.isEmpty(rp)) {
                 throw new NullPointerException("rpm为空");
             } else {
                 StringBuffer sb = new StringBuffer();
                 sb.append("appId=").append(appId);
-                sb.append("&nonceStr=").append(rpm.getNonceStr());
-                sb.append("&package=").append(rpm.get$package());
-                sb.append("&signType=").append(rpm.getSignType());
-                sb.append("&timeStamp=").append(rpm.getTimeStamp());
+                sb.append("&nonceStr=").append(rp.getNonceStr());
+                sb.append("&package=").append(rp.get$package());
+                sb.append("&signType=").append(rp.getSignType());
+                sb.append("&timeStamp=").append(rp.getTimeStamp());
                 sb.append("&key=").append(key);
                 return Lang.md5(sb.toString()).toUpperCase();
             }

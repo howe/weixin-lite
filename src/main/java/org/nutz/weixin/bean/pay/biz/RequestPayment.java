@@ -78,4 +78,7 @@ public class RequestPayment {
         this.$package = $package;
         this.signType = "MD5";
     }
+
+    public RequestPayment() {
+    }
 }
