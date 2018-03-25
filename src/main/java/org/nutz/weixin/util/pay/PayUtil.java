@@ -67,7 +67,7 @@ public class PayUtil {
                     && !Strings.equalsIgnoreCase(req.getTrade_type(), "APP")) {
                 throw new Exception("JSAPI--公众号支付、NATIVE--原生扫码支付、APP--app支付，统一下单接口trade_type的传参可参考这里");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_UNIFIEDORDER, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                String xml = HttpUtil.postXml(Dict.API_PAY_GATE + Dict.PAY_UNIFIEDORDER, Xmls.mapToXml(Lang.obj2nutmap(req)));
                 NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
@@ -119,7 +119,7 @@ public class PayUtil {
                     && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_ORDERQUERY, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                String xml = HttpUtil.postXml(Dict.API_PAY_GATE + Dict.PAY_ORDERQUERY, Xmls.mapToXml(Lang.obj2nutmap(req)));
                 NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
@@ -163,7 +163,7 @@ public class PayUtil {
                     && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_CLOSEORDER, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                String xml = HttpUtil.postXml(Dict.API_PAY_GATE + Dict.PAY_CLOSEORDER, Xmls.mapToXml(Lang.obj2nutmap(req)));
                 NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
@@ -225,7 +225,7 @@ public class PayUtil {
                     && !Strings.equalsIgnoreCase(req.getSign_type(), "HMAC-SHA256")) {
                 throw new Exception("sign_type默认为MD5，支持HMAC-SHA256和MD5");
             } else {
-                String xml = HttpUtil.postXml(Dict.API_GATE + Dict.PAY_REFUND, Xmls.mapToXml(Lang.obj2nutmap(req)));
+                String xml = HttpUtil.postXml(Dict.API_PAY_GATE + Dict.PAY_REFUND, Xmls.mapToXml(Lang.obj2nutmap(req)));
                 NutMap map = Xmls.xmlToMap(xml);
                 if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {
                     if (Strings.equalsIgnoreCase(map.getString("return_code"), "SUCCESS")) {

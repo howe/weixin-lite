@@ -17,6 +17,11 @@ public class Dict {
     public static String API_GATE = "https://api.weixin.qq.com";
 
     /**
+     * 微信网关地址
+     */
+    public static String API_PAY_GATE = "https://api.mch.weixin.qq.com";
+
+    /**
      * 通过code获取access_token
      */
     public static String SNS_OAUTH2_ACCESS_TOKEN = "/sns/oauth2/access_token";
