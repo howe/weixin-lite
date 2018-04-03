@@ -17,7 +17,7 @@ public class Dict {
     public static String API_GATE = "https://api.weixin.qq.com";
 
     /**
-     * 微信网关地址
+     * 微信支付网关地址
      */
     public static String API_PAY_GATE = "https://api.mch.weixin.qq.com";
 
@@ -50,6 +50,11 @@ public class Dict {
      * 获取access_token
      */
     public static String MP_TOKEN = "/cgi-bin/token";
+
+    /**
+     * 发送模板消息
+     */
+    public static String MP_MESSAGE_WXOPEN_TEMPLATE_SEND = "/cgi-bin/message/wxopen/template/send";
 
     /**
      * 获取jsapi_ticket

@@ -209,7 +209,12 @@ public class Error {
             new Error(9001033, "门店 ID 不合法"),
             new Error(9001034, "设备备注信息过长"),
             new Error(9001035, "设备申请参数不合法"),
-            new Error(9001036, "查询起始值 begin 不合法")
+            new Error(9001036, "查询起始值 begin 不合法"),
+            new Error(40037, "template_id不正确"),
+            new Error(41028, "form_id不正确，或者过期"),
+            new Error(41029, "form_id已被使用"),
+            new Error(41030, "page不正确"),
+            new Error(45009, "接口调用超过限额（目前默认每个帐号日调用限额为100万）")
     ));
 
     public static Error getError(int code) {
