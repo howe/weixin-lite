@@ -57,6 +57,31 @@ public class Dict {
     public static String MP_MESSAGE_WXOPEN_TEMPLATE_SEND = "/cgi-bin/message/wxopen/template/send";
 
     /**
+     * 获取小程序模板库标题列表
+     */
+    public static String MP_WXOPEN_TEMPLATE_LIBRARY_LIST = "/cgi-bin/wxopen/template/library/list";
+
+    /**
+     * 获取模板库某个模板标题下关键词库
+     */
+    public static String MP_WXOPEN_TEMPLATE_LIBRARY_GET = "/cgi-bin/wxopen/template/library/get";
+
+    /**
+     * 组合模板并添加至帐号下的个人模板库
+     */
+    public static String MP_WXOPEN_TEMPLATE_ADD = "/cgi-bin/wxopen/template/add";
+
+    /**
+     * 获取帐号下已存在的模板列表
+     */
+    public static String MP_WXOPEN_TEMPLATE_LIST = "/cgi-bin/wxopen/template/list";
+
+    /**
+     * 删除帐号下的某个模板
+     */
+    public static String MP_WXOPEN_TEMPLATE_DEL = "/cgi-bin/wxopen/template/del";
+
+    /**
      * 获取jsapi_ticket
      */
     public static String MP_TICKET_GETTICKET = "/cgi-bin/ticket/getticket";

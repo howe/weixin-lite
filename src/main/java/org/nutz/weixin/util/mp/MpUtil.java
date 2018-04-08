@@ -6,15 +6,9 @@ import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
 import org.nutz.weixin.bean.mp.Error;
-import org.nutz.weixin.bean.mp.req.GetcallbackipReq;
-import org.nutz.weixin.bean.mp.req.GetticketReq;
-import org.nutz.weixin.bean.mp.req.TokenReq;
-import org.nutz.weixin.bean.mp.resp.GetcallbackipResp;
-import org.nutz.weixin.bean.mp.resp.GetticketResp;
-import org.nutz.weixin.bean.mp.resp.TokenResp;
+import org.nutz.weixin.bean.mp.req.*;
+import org.nutz.weixin.bean.mp.resp.*;
 import org.nutz.weixin.util.HttpUtil;
-
-import java.util.List;
 
 /**
  * 微信公众平台功能
@@ -120,6 +114,64 @@ public class MpUtil {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TICKET_GETTICKET + "?access_token=" + req.getAccess_token() + "&type=" + req.getType());
                 if (json.indexOf("ticket") >= 0) {
                     GetticketResp resp = Json.fromJson(GetticketResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获取小程序模板库标题列表
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static WxopenTemplateLibraryListResp wxopenTemplateLibraryList(WxopenTemplateLibraryListReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (req.getOffset() < 0 || req.getOffset() > 20) {
+                throw new NullPointerException("offset值为0~20之间的整数");
+            } else if (req.getCount() < 0 || req.getCount() > 20) {
+                throw new NullPointerException("count值为0~20之间的整数");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("list") >= 0) {
+                    WxopenTemplateLibraryListResp resp = Json.fromJson(WxopenTemplateLibraryListResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获取小程序模板库标题列表
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static WxopenTemplateLibraryGetResp wxopenTemplateLibraryGet(WxopenTemplateLibraryGetReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getId())) {
+                throw new NullPointerException("id为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_GET + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("keyword_list") >= 0) {
+                    WxopenTemplateLibraryGetResp resp = Json.fromJson(WxopenTemplateLibraryGetResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);
