@@ -157,7 +157,7 @@ public class MpUtil {
     }
 
     /**
-     * 获取小程序模板库标题列表
+     * 获取模板库某个模板标题下关键词库
      *
      * @param req 参数
      * @return 结果
@@ -172,6 +172,64 @@ public class MpUtil {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_GET + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("keyword_list") >= 0) {
                     WxopenTemplateLibraryGetResp resp = Json.fromJson(WxopenTemplateLibraryGetResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 组合模板并添加至帐号下的个人模板库
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static WxopenTemplateAddResp wxopenTemplateAdd(WxopenTemplateAddReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getId())) {
+                throw new NullPointerException("id为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_ADD + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("template_id") >= 0) {
+                    WxopenTemplateAddResp resp = Json.fromJson(WxopenTemplateAddResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获取帐号下已存在的模板列表
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static WxopenTemplateListResp wxopenTemplateList(WxopenTemplateListReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (req.getOffset() < 0 || req.getOffset() > 20) {
+                throw new NullPointerException("offset值为0~20之间的整数");
+            } else if (req.getCount() < 0 || req.getCount() > 20) {
+                throw new NullPointerException("count值为0~20之间的整数");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("list") >= 0) {
+                    WxopenTemplateListResp resp = Json.fromJson(WxopenTemplateListResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);
