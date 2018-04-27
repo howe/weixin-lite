@@ -7,7 +7,7 @@ import org.nutz.lang.util.NutMap;
  *
  * @howechiang
  */
-public class MessageWxopenTemplateSendReq {
+public class MessageWxopenTemplateSendReq extends BaseReq {
 
     /**
      * 接收者（用户）的 openid
@@ -72,19 +72,6 @@ public class MessageWxopenTemplateSendReq {
 
     public void setData(NutMap data) {
         this.data = data;
-    }
-
-    /**
-     * 模板内容字体的颜色，不填默认黑色
-     */
-    private String color;
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     /**

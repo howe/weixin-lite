@@ -3,6 +3,7 @@ package org.nutz.weixin.util;
 import org.nutz.http.*;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
+import org.nutz.mvc.upload.TempFile;
 
 import java.util.Map;
 
@@ -186,6 +187,35 @@ public class HttpUtil {
                 throw new Exception("xml为空");
             } else {
                 return Http.postXML(url, xml, 10000).getContent();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 上传文件
+     *
+     * @param url
+     * @param name
+     * @param file
+     * @return
+     */
+    public static String upload(String url, String name, TempFile file) {
+        try {
+            if (Strings.isBlank(url)) {
+                throw new Exception("url为空");
+            } else if (!Strings.isUrl(url)) {
+                throw new Exception("url格式不正确");
+            } else if (Lang.isEmpty(file)) {
+                throw new Exception("file为空");
+            } else {
+                Request req = Request.create(url, Request.METHOD.POST);
+                req.getHeader().set("enctype", "multipart/form-data");
+                req.getParams().put(Strings.isBlank(name) ? "file" : name, file);
+                Response resp = Sender.create(req).setTimeout(60000).send();
+                return resp.getContent();
             }
         } catch (Exception e) {
             e.printStackTrace();

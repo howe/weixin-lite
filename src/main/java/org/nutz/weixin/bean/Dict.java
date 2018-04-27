@@ -127,6 +127,16 @@ public class Dict {
     public static String PAY_REFUND = "/secapi/pay/refund";
 
     /**
+     * 敏感文本检测接口
+     */
+    public static String WXA_MSG_SEC_CHECK = "/wxa/msg_sec_check";
+
+    /**
+     * 敏感图片检测接口
+     */
+    public static String WXA_IMG_SEC_CHECK = "/wxa/img_sec_check";
+
+    /**
      * 微信JS接口
      */
     public static final List<String> jsApiList = new ArrayList<>(

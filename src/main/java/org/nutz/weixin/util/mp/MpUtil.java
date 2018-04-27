@@ -241,4 +241,66 @@ public class MpUtil {
             throw Lang.wrapThrow(e);
         }
     }
+
+    /**
+     * 删除帐号下的某个模板
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static WxopenTemplateDelResp wxopenTemplateDel(WxopenTemplateDelReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getTemplate_id())) {
+                throw new NullPointerException("template_id为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("ok") >= 0) {
+                    WxopenTemplateDelResp resp = Json.fromJson(WxopenTemplateDelResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 发送模板消息
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static MessageWxopenTemplateSendResp messageWxopenTemplateSend(MessageWxopenTemplateSendReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getTemplate_id())) {
+                throw new NullPointerException("template_id为空");
+            } else if (Strings.isBlank(req.getTouser())) {
+                throw new NullPointerException("touser为空");
+            } else if (Strings.isBlank(req.getForm_id())) {
+                throw new NullPointerException("form_id为空");
+            } else if (Lang.isEmpty(req.getData())) {
+                throw new NullPointerException("data为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_WXOPEN_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("ok") >= 0) {
+                    MessageWxopenTemplateSendResp resp = Json.fromJson(MessageWxopenTemplateSendResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
 }
