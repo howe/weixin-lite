@@ -255,7 +255,7 @@ public class MpUtil {
             } else if (Strings.isBlank(req.getTemplate_id())) {
                 throw new NullPointerException("template_id为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_DEL + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     WxopenTemplateDelResp resp = Json.fromJson(WxopenTemplateDelResp.class, json);
                     return resp;
@@ -292,6 +292,178 @@ public class MpUtil {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_WXOPEN_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     MessageWxopenTemplateSendResp resp = Json.fromJson(MessageWxopenTemplateSendResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /** 微信公众号用途 **/
+
+    /**
+     * 设置所属行业
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static TemplateApiSetIndustryResp templateApiSetIndustry(TemplateApiSetIndustryReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getIndustry_id1())) {
+                throw new NullPointerException("industry_id1为空");
+            } else if (Strings.isBlank(req.getIndustry_id2())) {
+                throw new NullPointerException("industry_id2为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("ok") >= 0) {
+                    TemplateApiSetIndustryResp resp = Json.fromJson(TemplateApiSetIndustryResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获取设置的行业信息
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static TemplateGetIndustryResp templateGetIndustry(TemplateGetIndustryReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("first_class") >= 0) {
+                    TemplateGetIndustryResp resp = Json.fromJson(TemplateGetIndustryResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获得模板ID
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static TemplateApiAddTemplateResp templateApiAddTemplate(TemplateApiAddTemplateReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getTemplate_id_short())) {
+                throw new NullPointerException("template_id_short为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("template_id_short") >= 0) {
+                    TemplateApiAddTemplateResp resp = Json.fromJson(TemplateApiAddTemplateResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 获取模板列表
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static TemplateGetAllPrivateTemplateResp templateGetAllPrivateTemplate(TemplateGetAllPrivateTemplateReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_GET_ALL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("template_list") >= 0) {
+                    TemplateGetAllPrivateTemplateResp resp = Json.fromJson(TemplateGetAllPrivateTemplateResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 删除模板
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static TemplateDelPrivateTemplateResp templateDelPrivateTemplate(TemplateDelPrivateTemplateReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getTemplate_id())) {
+                throw new NullPointerException("template_id为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_DEL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("ok") >= 0) {
+                    TemplateDelPrivateTemplateResp resp = Json.fromJson(TemplateDelPrivateTemplateResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 发送模板消息
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static MessageTemplateSendResp messageTemplateSend(MessageTemplateSendReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Strings.isBlank(req.getTemplate_id())) {
+                throw new NullPointerException("template_id为空");
+            } else if (Strings.isBlank(req.getTouser())) {
+                throw new NullPointerException("touser为空");
+            } else if (Lang.isEmpty(req.getData())) {
+                throw new NullPointerException("data为空");
+            } else {
+                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("ok") >= 0) {
+                    MessageTemplateSendResp resp = Json.fromJson(MessageTemplateSendResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);

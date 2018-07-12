@@ -149,4 +149,37 @@ public class Dict {
                     "showAllNonBaseMenuItem", "closeWindow", "scanQRCode", "chooseWXPay", "openProductSpecificView",
                     "addCard", "chooseCard", "openCard")
     );
+
+
+    //微信公众号接口
+
+    /**
+     * 设置所属行业
+     */
+    public static String MP_TEMPLATE_API_SET_INDUSTRY = "/cgi-bin/template/api_set_industry";
+
+    /**
+     * 获取设置的行业信息
+     */
+    public static String MP_TEMPLATE_GET_INDUSTRY = "/cgi-bin/template/get_industry";
+
+    /**
+     * 获得模板ID
+     */
+    public static String MP_TEMPLATE_API_ADD_TEMPLATE = "/cgi-bin/template/api_add_template";
+
+    /**
+     * 获取模板列表
+     */
+    public static String MP_TEMPLATE_GET_ALL_PRIVATE_TEMPLATE = "/cgi-bin/template/get_all_private_template";
+
+    /**
+     * 删除模板
+     */
+    public static String MP_TEMPLATE_DEL_PRIVATE_TEMPLATE = "/cgi-bin/template/del_private_template";
+
+    /**
+     * 发送模板消息
+     */
+    public static String MP_MESSAGE_TEMPLATE_SEND = "/cgi-bin/message/template/send";
 }
