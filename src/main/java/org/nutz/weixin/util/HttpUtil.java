@@ -55,7 +55,7 @@ public class HttpUtil {
             } else if (parms.isEmpty()) {
                 throw new Exception("parms为空");
             } else {
-                return Http.post(url, parms, 10000);
+                return Http.post(url, parms, Sender.Default_Conn_Timeout);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class HttpUtil {
             } else if (!Strings.isUrl(url)) {
                 throw new Exception("url格式不正确");
             } else {
-                return Http.post(url, null, 10000);
+                return Http.post(url, null, Sender.Default_Conn_Timeout);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,7 +107,10 @@ public class HttpUtil {
             } else if (parms.isEmpty()) {
                 throw new Exception("parms为空");
             } else {
-                return Http.post3(url, parms, header, 10000).getContent();
+                header.set("Content-Type", "application/x-www-form-urlencoded");
+                return Sender.create(Request.create(url, Request.METHOD.POST, parms, header))
+                        .setTimeout(Sender.Default_Conn_Timeout).setConnTimeout(Sender.Default_Read_Timeout)
+                        .send().getContent();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -134,7 +137,7 @@ public class HttpUtil {
             } else if (header.getAll().isEmpty()) {
                 throw new Exception("header为空");
             } else {
-                return Http.get(url, header, 10000).getContent();
+                return Http.get(url, header, Sender.Default_Conn_Timeout).getContent();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -161,7 +164,7 @@ public class HttpUtil {
                 Request req = Request.create(url, Request.METHOD.POST);
                 req.getHeader().set("Content-Type", "application/json;charset=UTF-8");
                 req.setData(json);
-                Response resp = Sender.create(req).setTimeout(6000).send();
+                Response resp = Sender.create(req).setSSLSocketFactory(Http.nopSSLSocketFactory()).send();
                 return resp.getContent();
             }
         } catch (Exception e) {
@@ -186,7 +189,7 @@ public class HttpUtil {
             } else if (Lang.isEmpty(xml)) {
                 throw new Exception("xml为空");
             } else {
-                return Http.postXML(url, xml, 10000).getContent();
+                return Http.postXML(url, xml, Sender.Default_Conn_Timeout).getContent();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -214,7 +217,7 @@ public class HttpUtil {
                 Request req = Request.create(url, Request.METHOD.POST);
                 req.getHeader().set("enctype", "multipart/form-data");
                 req.getParams().put(Strings.isBlank(name) ? "file" : name, file);
-                Response resp = Sender.create(req).setTimeout(60000).send();
+                Response resp = Sender.create(req).setTimeout(Sender.Default_Conn_Timeout).send();
                 return resp.getContent();
             }
         } catch (Exception e) {
