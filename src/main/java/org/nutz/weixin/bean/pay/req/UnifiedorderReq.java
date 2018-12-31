@@ -209,6 +209,36 @@ public class UnifiedorderReq extends BaseReq {
     }
 
     /**
+     * 商品ID
+     * <p>
+     * trade_type=NATIVE时，此参数必传。此参数为二维码中包含的商品ID，商户自行定义。
+     */
+    private String product_id;
+
+    public String getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
+    }
+
+    /**
+     * 电子发票入口开放标识
+     * <p>
+     * Y，传入Y时，支付成功消息和支付详情页将出现开票入口。需要在微信支付商户平台或微信公众平台开通电子发票功能，传此字段才可生效
+     */
+    private String receipt;
+
+    public String getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(String receipt) {
+        this.receipt = receipt;
+    }
+
+    /**
      * 场景信息
      */
     private SceneInfo scene_info;
@@ -221,7 +251,7 @@ public class UnifiedorderReq extends BaseReq {
         this.scene_info = scene_info;
     }
 
-    public UnifiedorderReq(String device_info, String body, String detail, String attach, String out_trade_no, String fee_type, int total_fee, String spbill_create_ip, String time_start, String time_expire, String goods_tag, String notify_url, String trade_type, String limit_pay, String openid, SceneInfo scene_info) {
+    public UnifiedorderReq(String device_info, String body, String detail, String attach, String out_trade_no, String fee_type, int total_fee, String spbill_create_ip, String time_start, String time_expire, String goods_tag, String notify_url, String trade_type, String limit_pay, String openid, String product_id, String receipt, SceneInfo scene_info) {
         this.device_info = device_info;
         this.body = body;
         this.detail = detail;
@@ -237,6 +267,8 @@ public class UnifiedorderReq extends BaseReq {
         this.trade_type = trade_type;
         this.limit_pay = limit_pay;
         this.openid = openid;
+        this.product_id = product_id;
+        this.receipt = receipt;
         this.scene_info = scene_info;
     }
 
