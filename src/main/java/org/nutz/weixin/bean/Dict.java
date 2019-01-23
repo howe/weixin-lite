@@ -140,8 +140,8 @@ public class Dict {
      * 微信JS接口
      */
     public static final List<String> jsApiList = new ArrayList<>(
-            Arrays.asList("onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ",
-                    "onMenuShareWeibo", "onMenuShareQZone", "startRecord", "stopRecord",
+            Arrays.asList("updateAppMessageShareData", "updateTimelineShareData", "onMenuShareWeibo",
+                    "onMenuShareQZone", "startRecord", "stopRecord",
                     "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice", "onVoicePlayEnd",
                     "uploadVoice", "downloadVoice", "chooseImage", "previewImage", "uploadImage",
                     "downloadImage", "translateVoice", "getNetworkType", "openLocation", "getLocation",
