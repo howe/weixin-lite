@@ -141,8 +141,8 @@ public class Dict {
      */
     public static final List<String> jsApiList = new ArrayList<>(
             Arrays.asList("updateAppMessageShareData", "updateTimelineShareData", "onMenuShareWeibo",
-                    "onMenuShareQZone", "startRecord", "stopRecord",
-                    "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice", "onVoicePlayEnd",
+                    "onMenuShareQZone", "startRecord", "stopRecord", "onMenuShareTimeline", "onMenuShareAppMessage",
+                    "onVoiceRecordEnd", "playVoice", "pauseVoice", "stopVoice", "onVoicePlayEnd", "onMenuShareQQ",
                     "uploadVoice", "downloadVoice", "chooseImage", "previewImage", "uploadImage",
                     "downloadImage", "translateVoice", "getNetworkType", "openLocation", "getLocation",
                     "hideOptionMenu", "showOptionMenu", "hideMenuItems", "showMenuItems", "hideAllNonBaseMenuItem",
