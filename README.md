@@ -6,7 +6,7 @@ Nutz 微信精简版工具包
 <dependency>
     <groupId>org.nutz</groupId>
     <artifactId>weixin-lite</artifactId>
-    <version>1.r.65</version>
+    <version>1.r.67</version>
 </dependency>
 ```
 
@@ -35,7 +35,7 @@ Nutz 微信精简版工具包
 <dependency>
     <groupId>org.nutz</groupId>
     <artifactId>weixin-lite</artifactId>
-    <version>1.r.67-SNAPSHOT</version>
+    <version>1.r.68-SNAPSHOT</version>
 </dependency>
 ```
 

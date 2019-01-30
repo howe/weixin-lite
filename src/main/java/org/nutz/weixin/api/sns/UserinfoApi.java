@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.sns;
+package org.nutz.weixin.api.sns;
 
 import org.nutz.json.Json;
 import org.nutz.lang.Lang;
@@ -16,7 +16,7 @@ import org.nutz.weixin.util.HttpUtil;
  *
  * @author Jianghao(howechiang @ gmail.com)
  */
-public class UserinfoUtil {
+public class UserinfoApi {
 
     /**
      * 获取用户个人信息（UnionID机制）

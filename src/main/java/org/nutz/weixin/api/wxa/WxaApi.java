@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.wxa;
+package org.nutz.weixin.api.wxa;
 
 import org.nutz.json.Json;
 import org.nutz.lang.Lang;
@@ -17,7 +17,7 @@ import org.nutz.weixin.util.HttpUtil;
  *
  * @howechiang
  */
-public class WxaUtil {
+public class WxaApi {
 
 
     /**

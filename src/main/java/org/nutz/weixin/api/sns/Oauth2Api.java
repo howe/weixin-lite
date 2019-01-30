@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.sns;
+package org.nutz.weixin.api.sns;
 
 import org.nutz.json.Json;
 import org.nutz.lang.Lang;
@@ -18,7 +18,7 @@ import org.nutz.weixin.util.HttpUtil;
  *
  * @howechiang
  */
-public class Oauth2Util {
+public class Oauth2Api {
 
     /**
      * 通过code获取access_token

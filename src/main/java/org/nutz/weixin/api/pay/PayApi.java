@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.pay;
+package org.nutz.weixin.api.pay;
 
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
@@ -15,14 +15,13 @@ import org.nutz.weixin.bean.pay.resp.OrderqueryResp;
 import org.nutz.weixin.bean.pay.resp.RefundResp;
 import org.nutz.weixin.bean.pay.resp.UnifiedorderResp;
 import org.nutz.weixin.util.HttpUtil;
-import org.nutz.weixin.util.Util;
 
 /**
  * Created by Jianghao on 2018/3/6
  *
  * @howechiang
  */
-public class PayUtil {
+public class PayApi {
 
     /**
      * 统一下单

@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.sns;
+package org.nutz.weixin.api.sns;
 
 import org.nutz.json.Json;
 import org.nutz.lang.Lang;
@@ -14,7 +14,7 @@ import org.nutz.weixin.util.HttpUtil;
  *
  * @author Jianghao(howechiang @ gmail.com)
  */
-public class AuthUtil {
+public class AuthApi {
 
     /**
      * 检验授权凭证（access_token）是否有效

@@ -1,4 +1,4 @@
-package org.nutz.weixin.util.mp;
+package org.nutz.weixin.api.mp;
 
 import org.nutz.json.Json;
 import org.nutz.lang.Lang;
@@ -19,7 +19,7 @@ import org.nutz.weixin.util.HttpUtil;
  *
  * @howechiang
  */
-public class CustomserviceUtil {
+public class CustomserviceApi {
 
 
     /**
