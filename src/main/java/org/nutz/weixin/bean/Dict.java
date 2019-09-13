@@ -182,4 +182,9 @@ public class Dict {
      * 发送模板消息
      */
     public static String MP_MESSAGE_TEMPLATE_SEND = "/cgi-bin/message/template/send";
+
+    /**
+     * 用户支付完成后，获取该用户的 UnionId
+     */
+    public static String WXA_GET_PAID_UNIONID = "/wxa/getpaidunionid";
 }

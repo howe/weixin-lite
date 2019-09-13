@@ -6,11 +6,14 @@ import org.nutz.weixin.bean.wxa.Error;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
 import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.wxa.req.GetpaidunionidReq;
 import org.nutz.weixin.bean.wxa.req.ImgSecCheckReq;
 import org.nutz.weixin.bean.wxa.req.MsgSecCheckReq;
+import org.nutz.weixin.bean.wxa.resp.GetpaidunionidResp;
 import org.nutz.weixin.bean.wxa.resp.ImgSecCheckResp;
 import org.nutz.weixin.bean.wxa.resp.MsgSecCheckResp;
 import org.nutz.weixin.util.HttpUtil;
+import org.nutz.weixin.util.Util;
 
 /**
  * Created by Jianghao on 2018/4/27
@@ -74,6 +77,34 @@ public class WxaApi {
                 String json = HttpUtil.upload(Dict.API_GATE + Dict.WXA_IMG_SEC_CHECK + "?access_token=" + req.getAccess_token(), req.getMedia().getName(), req.getMedia());
                 if (json.indexOf("ok") >= 0) {
                     ImgSecCheckResp resp = Json.fromJson(ImgSecCheckResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 用户支付完成后，获取该用户的 UnionId，无需用户授权。本接口支持第三方平台代理查询。
+     * <p>
+     * 注意：调用前需要用户完成支付，且在支付后的五分钟内有效。
+     *
+     * @param req 参数
+     * @return 结果
+     */
+    public static GetpaidunionidResp getpaidunionid(GetpaidunionidReq req) {
+        try {
+            if (Strings.isBlank(req.getOpenid())) {
+                throw new NullPointerException("openid为空");
+            } else {
+                String json = HttpUtil.get(Dict.API_GATE + Dict.WXA_GET_PAID_UNIONID + "?access_token=" + req.getAccess_token() + "&" + Util.buildParmas(Lang.obj2map(req)));
+                if (json.indexOf("ok") >= 0) {
+                    GetpaidunionidResp resp = Json.fromJson(GetpaidunionidResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);

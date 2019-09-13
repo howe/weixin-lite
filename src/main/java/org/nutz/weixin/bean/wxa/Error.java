@@ -141,7 +141,9 @@ public class Error {
             new Error(45017, "can't set group name too long sys group", "修改组名过长"),
             new Error(45018, "too many group now, no need to add new", "组数量过多"),
             new Error(87014, "risky content", "内含有敏感信息"),
-            new Error(50001, "api unauthorized", "接口未授权")
+            new Error(50001, "api unauthorized", "接口未授权"),
+            new Error(89300, "invalid order", "订单无效"),
+            new Error(89002, "not bound", "没有绑定开放平台帐号")
     ));
 
     public static Error getError(int code) {

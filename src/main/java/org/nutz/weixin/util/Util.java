@@ -146,7 +146,7 @@ public class Util {
             params = Util.sorting(params, "asc");
             StringBuffer sb = new StringBuffer();
             params.forEach((k, v) -> {
-                if (!Lang.isEmpty(v)) {
+                if (Lang.isNotEmpty(v)) {
                     sb.append(k + "=" + v + "&");
                 }
             });
