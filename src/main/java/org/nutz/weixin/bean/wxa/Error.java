@@ -103,6 +103,7 @@ public class Error {
             new Error(40054, "invalid sub button url domain", "不合法的子菜单按钮url域名"),
             new Error(40055, "invalid button url domain", "不合法的菜单按钮url域名"),
             new Error(40066, "invalid url", "不合法的url"),
+            new Error(40163, "code been used", "Code已使用"),
             new Error(41001, "access_token missing", "缺失access_token参数"),
             new Error(41002, "appid missing", "缺失appid参数"),
             new Error(41003, "refresh_token missing", "缺失refresh_token参数"),
