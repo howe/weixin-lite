@@ -40,12 +40,12 @@ public class Oauth2Api {
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&code=" + req.getCode() + "&grant_type=" + req.getGrant_type());
-                if (json.indexOf("access_token") >= 0) {
-                    AccessTokenResp resp = Json.fromJson(AccessTokenResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("access_token"))) {
+                    AccessTokenResp resp = Lang.map2Object(map, AccessTokenResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -80,12 +80,12 @@ public class Oauth2Api {
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +
                         "&refresh_token=" + req.getRefresh_token() + "&grant_type=" + req.getGrant_type());
-                if (json.indexOf("access_token") >= 0) {
-                    RefreshTokenResp resp = Json.fromJson(RefreshTokenResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("access_token"))) {
+                    RefreshTokenResp resp = Lang.map2Object(map, RefreshTokenResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {

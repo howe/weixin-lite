@@ -41,12 +41,12 @@ public class WxaApi {
                 throw new NullPointerException("content为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.WXA_MSG_SEC_CHECK + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("ok") >= 0) {
-                    MsgSecCheckResp resp = Json.fromJson(MsgSecCheckResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    MsgSecCheckResp resp = Lang.map2Object(map, MsgSecCheckResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -75,12 +75,12 @@ public class WxaApi {
                 throw new NullPointerException("media为空");
             } else {
                 String json = HttpUtil.upload(Dict.API_GATE + Dict.WXA_IMG_SEC_CHECK + "?access_token=" + req.getAccess_token(), req.getMedia().getName(), req.getMedia());
-                if (json.indexOf("ok") >= 0) {
-                    ImgSecCheckResp resp = Json.fromJson(ImgSecCheckResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    ImgSecCheckResp resp = Lang.map2Object(map, ImgSecCheckResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -103,12 +103,12 @@ public class WxaApi {
                 throw new NullPointerException("openid为空");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.WXA_GET_PAID_UNIONID + "?access_token=" + req.getAccess_token() + "&" + Util.buildParmas(Lang.obj2map(req)));
-                if (json.indexOf("ok") >= 0) {
-                    GetpaidunionidResp resp = Json.fromJson(GetpaidunionidResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    GetpaidunionidResp resp = Lang.map2Object(map, GetpaidunionidResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {

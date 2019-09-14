@@ -40,7 +40,7 @@ public class CustomserviceApi {
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_ADD + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
-                if (Lang.equals(map.getInt("errcode"), 0)) {
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     return true;
                 } else {
                     return false;
@@ -70,7 +70,7 @@ public class CustomserviceApi {
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_UPDATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
-                if (Lang.equals(map.getInt("errcode"), 0)) {
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     return true;
                 } else {
                     return false;
@@ -100,7 +100,7 @@ public class CustomserviceApi {
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_CUSTOMSERVICE_KFACCOUNT_DEL + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
-                if (Lang.equals(map.getInt("errcode"), 0)) {
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     return true;
                 } else {
                     return false;

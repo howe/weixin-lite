@@ -53,12 +53,12 @@ public class MpApi {
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&grant_type=" + req.getGrant_type());
-                if (json.indexOf("access_token") >= 0) {
-                    TokenResp resp = Json.fromJson(TokenResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("access_token"))) {
+                    TokenResp resp = Lang.map2Object(map, TokenResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -81,12 +81,12 @@ public class MpApi {
                 throw new NullPointerException("access_token为空");
             } else {
                 String json = HttpUtil.get(Dict.API_GATE + Dict.MP_GETCALLBACKIP + "?access_token=" + req.getAccess_token());
-                if (json.indexOf("ip_list") >= 0) {
-                    GetcallbackipResp resp = Json.fromJson(GetcallbackipResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("ip_list"))) {
+                    GetcallbackipResp resp = Lang.map2Object(map, GetcallbackipResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -110,14 +110,13 @@ public class MpApi {
             if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
-
                 String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TICKET_GETTICKET + "?access_token=" + req.getAccess_token() + "&type=" + req.getType());
-                if (json.indexOf("ticket") >= 0) {
-                    GetticketResp resp = Json.fromJson(GetticketResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("ticket"))) {
+                    GetticketResp resp = Lang.map2Object(map, GetticketResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -142,12 +141,12 @@ public class MpApi {
                 throw new NullPointerException("count值为0~20之间的整数");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("list") >= 0) {
-                    WxopenTemplateLibraryListResp resp = Json.fromJson(WxopenTemplateLibraryListResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("list"))) {
+                    WxopenTemplateLibraryListResp resp = Lang.map2Object(map, WxopenTemplateLibraryListResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -170,12 +169,12 @@ public class MpApi {
                 throw new NullPointerException("id为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_GET + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("keyword_list") >= 0) {
-                    WxopenTemplateLibraryGetResp resp = Json.fromJson(WxopenTemplateLibraryGetResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("keyword_list"))) {
+                    WxopenTemplateLibraryGetResp resp = Lang.map2Object(map, WxopenTemplateLibraryGetResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -198,12 +197,12 @@ public class MpApi {
                 throw new NullPointerException("id为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_ADD + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("template_id") >= 0) {
-                    WxopenTemplateAddResp resp = Json.fromJson(WxopenTemplateAddResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("template_id"))) {
+                    WxopenTemplateAddResp resp = Lang.map2Object(map, WxopenTemplateAddResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -228,12 +227,12 @@ public class MpApi {
                 throw new NullPointerException("count值为0~20之间的整数");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("list") >= 0) {
-                    WxopenTemplateListResp resp = Json.fromJson(WxopenTemplateListResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("list"))) {
+                    WxopenTemplateListResp resp = Lang.map2Object(map, WxopenTemplateListResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -256,12 +255,12 @@ public class MpApi {
                 throw new NullPointerException("template_id为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_DEL + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("ok") >= 0) {
-                    WxopenTemplateDelResp resp = Json.fromJson(WxopenTemplateDelResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    WxopenTemplateDelResp resp = Lang.map2Object(map, WxopenTemplateDelResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -290,12 +289,12 @@ public class MpApi {
                 throw new NullPointerException("data为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_WXOPEN_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("ok") >= 0) {
-                    MessageWxopenTemplateSendResp resp = Json.fromJson(MessageWxopenTemplateSendResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    MessageWxopenTemplateSendResp resp = Lang.map2Object(map, MessageWxopenTemplateSendResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -322,8 +321,9 @@ public class MpApi {
                 throw new NullPointerException("industry_id2为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("ok") >= 0) {
-                    TemplateApiSetIndustryResp resp = Json.fromJson(TemplateApiSetIndustryResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    TemplateApiSetIndustryResp resp = Lang.map2Object(map, TemplateApiSetIndustryResp.class);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);
@@ -348,12 +348,13 @@ public class MpApi {
                 throw new NullPointerException("access_token为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("first_class") >= 0) {
-                    TemplateGetIndustryResp resp = Json.fromJson(TemplateGetIndustryResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("first_class"))) {
+                    TemplateGetIndustryResp resp = Lang.map2Object(map, TemplateGetIndustryResp.class);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -376,12 +377,12 @@ public class MpApi {
                 throw new NullPointerException("template_id_short为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("template_id_short") >= 0) {
-                    TemplateApiAddTemplateResp resp = Json.fromJson(TemplateApiAddTemplateResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("template_id_short"))) {
+                    TemplateApiAddTemplateResp resp = Lang.map2Object(map, TemplateApiAddTemplateResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -402,12 +403,12 @@ public class MpApi {
                 throw new NullPointerException("access_token为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_GET_ALL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("template_list") >= 0) {
-                    TemplateGetAllPrivateTemplateResp resp = Json.fromJson(TemplateGetAllPrivateTemplateResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("template_list"))) {
+                    TemplateGetAllPrivateTemplateResp resp = Lang.map2Object(map, TemplateGetAllPrivateTemplateResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -430,12 +431,12 @@ public class MpApi {
                 throw new NullPointerException("template_id为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_DEL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("ok") >= 0) {
-                    TemplateDelPrivateTemplateResp resp = Json.fromJson(TemplateDelPrivateTemplateResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    TemplateDelPrivateTemplateResp resp = Lang.map2Object(map, TemplateDelPrivateTemplateResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
@@ -462,12 +463,12 @@ public class MpApi {
                 throw new NullPointerException("data为空");
             } else {
                 String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
-                if (json.indexOf("ok") >= 0) {
-                    MessageTemplateSendResp resp = Json.fromJson(MessageTemplateSendResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
+                    MessageTemplateSendResp resp = Lang.map2Object(map, MessageTemplateSendResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
