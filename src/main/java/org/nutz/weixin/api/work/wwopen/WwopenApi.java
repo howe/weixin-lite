@@ -2,7 +2,8 @@ package org.nutz.weixin.api.work.wwopen;
 
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.work.wwopen.req.QrConnectReq;
 import org.nutz.weixin.util.Util;
 
@@ -28,7 +29,7 @@ public class WwopenApi {
             } else if (Strings.isBlank(req.getRedirect_uri())) {
                 throw new NullPointerException("redirect_uri为空");
             } else {
-                return Dict.OPEN_WORK_GATE + Dict.WWOPEN_SSO_QRCONNECT + "?" + Util.buildParmas(Lang.obj2map(req));
+                return Comm.OPEN_WORK_GATE + Comm.WWOPEN_SSO_QRCONNECT + "?" + Util.buildParmas(Lang.obj2map(req));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.work.mp.req.*;
 import org.nutz.weixin.bean.work.mp.resp.*;
 import org.nutz.weixin.bean.mp.Error;
@@ -37,7 +37,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getCorpsecret())) {
                 throw new NullPointerException("corpsecret为空");
             } else {
-                String json = HttpUtil.get(Dict.QYAPI_GATE + Dict.MP_GETTOKEN + "?corpid=" + req.getCorpid() +
+                String json = HttpUtil.get(Comm.QYAPI_GATE + Comm.MP_GETTOKEN + "?corpid=" + req.getCorpid() +
                         "&corpsecret=" + req.getCorpsecret());
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
@@ -70,7 +70,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getUserid())) {
                 throw new NullPointerException("userid为空");
             } else {
-                String json = HttpUtil.post(Dict.QYAPI_GATE + Dict.MP_USER_CONVERT_TO_OPENID + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.QYAPI_GATE + Comm.MP_USER_CONVERT_TO_OPENID + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     ConvertToOpenidResp resp = Lang.map2Object(map, ConvertToOpenidResp.class);
@@ -101,7 +101,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
-                String json = HttpUtil.post(Dict.QYAPI_GATE + Dict.MP_USER_CONVERT_TO_USERID + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.QYAPI_GATE + Comm.MP_USER_CONVERT_TO_USERID + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     ConvertToUseridResp resp = Lang.map2Object(map, ConvertToUseridResp.class);
@@ -131,7 +131,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getCode())) {
                 throw new NullPointerException("code为空");
             } else {
-                String json = HttpUtil.get(Dict.QYAPI_GATE + Dict.MP_USER_GETUSERINFO + "?" + Util.buildParmas(Lang.obj2map(req)));
+                String json = HttpUtil.get(Comm.QYAPI_GATE + Comm.MP_USER_GETUSERINFO + "?" + Util.buildParmas(Lang.obj2map(req)));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     GetuserinfoResp resp = Lang.map2Object(map, GetuserinfoResp.class);
@@ -161,7 +161,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getUserid())) {
                 throw new NullPointerException("userid为空");
             } else {
-                String json = HttpUtil.get(Dict.QYAPI_GATE + Dict.MP_USER_GET + "?" + Util.buildParmas(Lang.obj2map(req)));
+                String json = HttpUtil.get(Comm.QYAPI_GATE + Comm.MP_USER_GET + "?" + Util.buildParmas(Lang.obj2map(req)));
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     GetResp resp = Lang.map2Object(map, GetResp.class);

@@ -22,6 +22,16 @@ public class Comm {
     public static String API_PAY_GATE = "https://api.mch.weixin.qq.com";
 
     /**
+     * 企业微信网关地址
+     */
+    public static String QYAPI_GATE = "https://qyapi.weixin.qq.com";
+
+    /**
+     * 企业微信登录地址
+     */
+    public static String OPEN_WORK_GATE = "https://open.work.weixin.qq.com";
+
+    /**
      * 通过code获取access_token
      */
     public static String SNS_OAUTH2_ACCESS_TOKEN = "/sns/oauth2/access_token";
@@ -182,6 +192,41 @@ public class Comm {
      * 发送模板消息
      */
     public static String MP_MESSAGE_TEMPLATE_SEND = "/cgi-bin/message/template/send";
+
+    /**
+     * 用户支付完成后，获取该用户的 UnionId
+     */
+    public static String WXA_GET_PAID_UNIONID = "/wxa/getpaidunionid";
+
+    /**
+     * 企业微信获取access_token
+     */
+    public static String MP_GETTOKEN = "/cgi-bin/gettoken";
+
+    /**
+     * 构造独立窗口登录二维码
+     */
+    public static String WWOPEN_SSO_QRCONNECT = "/wwopen/sso/qrConnect";
+
+    /**
+     * userid转openid
+     */
+    public static String MP_USER_CONVERT_TO_OPENID = "/cgi-bin/user/convert_to_openid";
+
+    /**
+     * openid转userid
+     */
+    public static String MP_USER_CONVERT_TO_USERID = "/cgi-bin/user/convert_to_userid";
+
+    /**
+     * 获取访问用户身份
+     */
+    public static String MP_USER_GETUSERINFO = "/cgi-bin/user/getuserinfo";
+
+    /**
+     * 读取成员
+     */
+    public static String MP_USER_GET = "/cgi-bin/user/get";
 
     //微信小程序接口
 
