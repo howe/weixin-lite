@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.sns.Error;
 import org.nutz.weixin.bean.sns.req.AccessTokenReq;
 import org.nutz.weixin.bean.sns.req.RefreshTokenReq;
@@ -38,7 +38,7 @@ public class Oauth2Api {
             } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_OAUTH2_ACCESS_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&code=" + req.getCode() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("access_token") >= 0) {
                     AccessTokenResp resp = Json.fromJson(AccessTokenResp.class, json);
@@ -78,7 +78,7 @@ public class Oauth2Api {
             } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "refresh_token")) {
                 throw new Exception("grant_type填refresh_token");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_OAUTH2_REFRESH_TOKEN + "?appid=" + req.getAppid() +
                         "&refresh_token=" + req.getRefresh_token() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("access_token") >= 0) {
                     RefreshTokenResp resp = Json.fromJson(RefreshTokenResp.class, json);

@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.sns.Error;
 import org.nutz.weixin.bean.sns.req.UserinfoReq;
 import org.nutz.weixin.bean.sns.resp.UserinfoResp;
@@ -40,7 +40,7 @@ public class UserinfoApi {
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_USERINFO + "?openid=" + req.getOpenid() +
+                String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_USERINFO + "?openid=" + req.getOpenid() +
                         "&access_token=" + req.getAccess_token() + "&lang=" + req.getLang());
                 if (json.indexOf("openid") >= 0) {
                     UserinfoResp resp = Json.fromJson(UserinfoResp.class, json);

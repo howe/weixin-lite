@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.sns.Error;
 import org.nutz.weixin.bean.sns.req.Jscode2sessionReq;
 import org.nutz.weixin.bean.sns.resp.Jscode2sessionResp;
@@ -43,7 +43,7 @@ public class MiniappApi {
             } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "authorization_code")) {
                 throw new Exception("grant_type填authorization_code");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_JSCODE2SESSION + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_JSCODE2SESSION + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&js_code=" + req.getJs_code() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("openid") >= 0) {
                     Jscode2sessionResp resp = Json.fromJson(Jscode2sessionResp.class, json);

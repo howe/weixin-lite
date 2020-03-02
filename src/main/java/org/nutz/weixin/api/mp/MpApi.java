@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.mp.Error;
 import org.nutz.weixin.bean.mp.req.*;
 import org.nutz.weixin.bean.mp.resp.*;
@@ -51,7 +51,7 @@ public class MpApi {
             } else if (!Strings.equalsIgnoreCase(req.getGrant_type(), "client_credential")) {
                 throw new Exception("grant_type填client_credential");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TOKEN + "?appid=" + req.getAppid() +
+                String json = HttpUtil.get(Comm.API_GATE + Comm.MP_TOKEN + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&grant_type=" + req.getGrant_type());
                 if (json.indexOf("access_token") >= 0) {
                     TokenResp resp = Json.fromJson(TokenResp.class, json);
@@ -80,7 +80,7 @@ public class MpApi {
             if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_GETCALLBACKIP + "?access_token=" + req.getAccess_token());
+                String json = HttpUtil.get(Comm.API_GATE + Comm.MP_GETCALLBACKIP + "?access_token=" + req.getAccess_token());
                 if (json.indexOf("ip_list") >= 0) {
                     GetcallbackipResp resp = Json.fromJson(GetcallbackipResp.class, json);
                     return resp;
@@ -110,8 +110,7 @@ public class MpApi {
             if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
-
-                String json = HttpUtil.get(Dict.API_GATE + Dict.MP_TICKET_GETTICKET + "?access_token=" + req.getAccess_token() + "&type=" + req.getType());
+                String json = HttpUtil.get(Comm.API_GATE + Comm.MP_TICKET_GETTICKET + "?access_token=" + req.getAccess_token() + "&type=" + req.getType());
                 if (json.indexOf("ticket") >= 0) {
                     GetticketResp resp = Json.fromJson(GetticketResp.class, json);
                     return resp;
@@ -141,7 +140,7 @@ public class MpApi {
             } else if (req.getCount() < 0 || req.getCount() > 20) {
                 throw new NullPointerException("count值为0~20之间的整数");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_WXOPEN_TEMPLATE_LIBRARY_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("list") >= 0) {
                     WxopenTemplateLibraryListResp resp = Json.fromJson(WxopenTemplateLibraryListResp.class, json);
                     return resp;
@@ -169,7 +168,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getId())) {
                 throw new NullPointerException("id为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIBRARY_GET + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_WXOPEN_TEMPLATE_LIBRARY_GET + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("keyword_list") >= 0) {
                     WxopenTemplateLibraryGetResp resp = Json.fromJson(WxopenTemplateLibraryGetResp.class, json);
                     return resp;
@@ -197,7 +196,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getId())) {
                 throw new NullPointerException("id为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_ADD + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_WXOPEN_TEMPLATE_ADD + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("template_id") >= 0) {
                     WxopenTemplateAddResp resp = Json.fromJson(WxopenTemplateAddResp.class, json);
                     return resp;
@@ -227,7 +226,7 @@ public class MpApi {
             } else if (req.getCount() < 0 || req.getCount() > 20) {
                 throw new NullPointerException("count值为0~20之间的整数");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_WXOPEN_TEMPLATE_LIST + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("list") >= 0) {
                     WxopenTemplateListResp resp = Json.fromJson(WxopenTemplateListResp.class, json);
                     return resp;
@@ -255,7 +254,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getTemplate_id())) {
                 throw new NullPointerException("template_id为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_WXOPEN_TEMPLATE_DEL + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_WXOPEN_TEMPLATE_DEL + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     WxopenTemplateDelResp resp = Json.fromJson(WxopenTemplateDelResp.class, json);
                     return resp;
@@ -289,7 +288,7 @@ public class MpApi {
             } else if (Lang.isEmpty(req.getData())) {
                 throw new NullPointerException("data为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_WXOPEN_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_MESSAGE_WXOPEN_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     MessageWxopenTemplateSendResp resp = Json.fromJson(MessageWxopenTemplateSendResp.class, json);
                     return resp;
@@ -321,7 +320,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getIndustry_id2())) {
                 throw new NullPointerException("industry_id2为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_TEMPLATE_API_SET_INDUSTRY + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     TemplateApiSetIndustryResp resp = Json.fromJson(TemplateApiSetIndustryResp.class, json);
                     return resp;
@@ -347,7 +346,7 @@ public class MpApi {
             if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_TEMPLATE_GET_INDUSTRY + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("first_class") >= 0) {
                     TemplateGetIndustryResp resp = Json.fromJson(TemplateGetIndustryResp.class, json);
                     return resp;
@@ -375,7 +374,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getTemplate_id_short())) {
                 throw new NullPointerException("template_id_short为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_TEMPLATE_API_ADD_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("template_id_short") >= 0) {
                     TemplateApiAddTemplateResp resp = Json.fromJson(TemplateApiAddTemplateResp.class, json);
                     return resp;
@@ -401,7 +400,7 @@ public class MpApi {
             if (Strings.isBlank(req.getAccess_token())) {
                 throw new NullPointerException("access_token为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_GET_ALL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_TEMPLATE_GET_ALL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("template_list") >= 0) {
                     TemplateGetAllPrivateTemplateResp resp = Json.fromJson(TemplateGetAllPrivateTemplateResp.class, json);
                     return resp;
@@ -429,7 +428,7 @@ public class MpApi {
             } else if (Strings.isBlank(req.getTemplate_id())) {
                 throw new NullPointerException("template_id为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_TEMPLATE_DEL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_TEMPLATE_DEL_PRIVATE_TEMPLATE + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     TemplateDelPrivateTemplateResp resp = Json.fromJson(TemplateDelPrivateTemplateResp.class, json);
                     return resp;
@@ -461,7 +460,7 @@ public class MpApi {
             } else if (Lang.isEmpty(req.getData())) {
                 throw new NullPointerException("data为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.MP_MESSAGE_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_MESSAGE_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     MessageTemplateSendResp resp = Json.fromJson(MessageTemplateSendResp.class, json);
                     return resp;

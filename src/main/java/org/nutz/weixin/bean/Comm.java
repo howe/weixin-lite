@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @howechiang
  */
-public class Dict {
+public class Comm {
 
     /**
      * 微信网关地址
@@ -182,4 +182,66 @@ public class Dict {
      * 发送模板消息
      */
     public static String MP_MESSAGE_TEMPLATE_SEND = "/cgi-bin/message/template/send";
+
+    //微信小程序接口
+
+    /**
+     * 获取用户访问小程序日留存
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDDAILYRETAININFO = "/datacube/getweanalysisappiddailyretaininfo";
+
+    /**
+     * 获取用户访问小程序月留存
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDMONTHLYRETAININFO = "/datacube/getweanalysisappidmonthlyretaininfo";
+
+    /**
+     * 获取用户访问小程序周留存
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDWEEKLYRETAININFO = "/datacube/getweanalysisappidweeklyretaininfo";
+
+    /**
+     * 获取用户访问小程序数据概况
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDDAILYSUMMARYTREND = "/datacube/getweanalysisappiddailysummarytrend";
+
+    /**
+     * 获取用户访问小程序数据日趋势
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDDAILYVISITTREND = "/datacube/getweanalysisappiddailyvisittrend";
+
+    /**
+     * 获取用户访问小程序数据月趋势
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDMONTHLYVISITTREND = "/datacube/getweanalysisappidmonthlyvisittrend";
+
+    /**
+     * 获取用户访问小程序数据周趋势
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDWEEKLYVISITTREND = "/datacube/getweanalysisappidweeklyvisittrend";
+
+    /**
+     * 获取小程序新增或活跃用户的画像分布数据
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDUSERPORTRAIT = "/datacube/getweanalysisappiduserportrait";
+
+    /**
+     * 获取小程序新增或活跃用户的画像分布数据
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDVISITDISTRIBUTION = "/datacube/getweanalysisappidvisitdistribution";
+
+    /**
+     * 访问页面。目前只提供按 page_visit_pv 排序的 top200
+     */
+    public static String XCX_DATACUBE_GETWEANALYSISAPPIDVISITPAGE = "/datacube/getweanalysisappidvisitpage";
+
+    /**
+     * 发送客服消息给用户。详细规则见 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/customer-message/send.html">发送客服消息</a>
+     */
+    public static String XCX_MESSAGE_CUSTOM_SEND = "/cgi-bin/message/custom/send";
+
+    /**
+     * 下发客服当前输入状态给用户。详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/customer-message/typing.html">客服消息输入状态</a>
+     */
+    public static String XCX_MESSAGE_CUSTOM_TYPING = "/cgi-bin/message/custom/typing";
 }

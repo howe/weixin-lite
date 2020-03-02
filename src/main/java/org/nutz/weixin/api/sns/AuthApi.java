@@ -4,7 +4,7 @@ import org.nutz.json.Json;
 import org.nutz.lang.Lang;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.sns.req.AuthReq;
 import org.nutz.weixin.util.HttpUtil;
 
@@ -29,7 +29,7 @@ public class AuthApi {
             } else if (Strings.isBlank(req.getOpenid())) {
                 throw new NullPointerException("openid为空");
             } else {
-                String json = HttpUtil.get(Dict.API_GATE + Dict.SNS_AUTH + "?openid=" + req.getOpenid() +
+                String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_AUTH + "?openid=" + req.getOpenid() +
                         "&access_token=" + req.getAccess_token());
                 NutMap map = Json.fromJson(NutMap.class, json);
                 if (Lang.equals(map.getInt("errcode"), 0)) {

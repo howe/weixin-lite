@@ -5,7 +5,7 @@ import org.nutz.lang.Lang;
 import org.nutz.weixin.bean.wxa.Error;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.weixin.bean.Dict;
+import org.nutz.weixin.bean.Comm;
 import org.nutz.weixin.bean.wxa.req.ImgSecCheckReq;
 import org.nutz.weixin.bean.wxa.req.MsgSecCheckReq;
 import org.nutz.weixin.bean.wxa.resp.ImgSecCheckResp;
@@ -37,7 +37,7 @@ public class WxaApi {
             if (Strings.isBlank(req.getContent())) {
                 throw new NullPointerException("content为空");
             } else {
-                String json = HttpUtil.post(Dict.API_GATE + Dict.WXA_MSG_SEC_CHECK + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                String json = HttpUtil.post(Comm.API_GATE + Comm.WXA_MSG_SEC_CHECK + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     MsgSecCheckResp resp = Json.fromJson(MsgSecCheckResp.class, json);
                     return resp;
@@ -71,7 +71,7 @@ public class WxaApi {
             if (Lang.isEmpty(req.getMedia())) {
                 throw new NullPointerException("media为空");
             } else {
-                String json = HttpUtil.upload(Dict.API_GATE + Dict.WXA_IMG_SEC_CHECK + "?access_token=" + req.getAccess_token(), req.getMedia().getName(), req.getMedia());
+                String json = HttpUtil.upload(Comm.API_GATE + Comm.WXA_IMG_SEC_CHECK + "?access_token=" + req.getAccess_token(), req.getMedia().getName(), req.getMedia());
                 if (json.indexOf("ok") >= 0) {
                     ImgSecCheckResp resp = Json.fromJson(ImgSecCheckResp.class, json);
                     return resp;
