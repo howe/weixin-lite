@@ -42,12 +42,12 @@ public class UserinfoApi {
             } else {
                 String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_USERINFO + "?openid=" + req.getOpenid() +
                         "&access_token=" + req.getAccess_token() + "&lang=" + req.getLang());
-                if (json.indexOf("openid") >= 0) {
-                    UserinfoResp resp = Json.fromJson(UserinfoResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("openid"))) {
+                    UserinfoResp resp = Lang.map2Object(map, UserinfoResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {

@@ -32,7 +32,7 @@ public class AuthApi {
                 String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_AUTH + "?openid=" + req.getOpenid() +
                         "&access_token=" + req.getAccess_token());
                 NutMap map = Json.fromJson(NutMap.class, json);
-                if (Lang.equals(map.getInt("errcode"), 0)) {
+                if (Strings.equalsIgnoreCase(map.getString("errcode"), "0")) {
                     return true;
                 } else {
                     return false;

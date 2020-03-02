@@ -45,12 +45,13 @@ public class MiniappApi {
             } else {
                 String json = HttpUtil.get(Comm.API_GATE + Comm.SNS_JSCODE2SESSION + "?appid=" + req.getAppid() +
                         "&secret=" + req.getSecret() + "&js_code=" + req.getJs_code() + "&grant_type=" + req.getGrant_type());
-                if (json.indexOf("openid") >= 0) {
-                    Jscode2sessionResp resp = Json.fromJson(Jscode2sessionResp.class, json);
+                NutMap map = Json.fromJson(NutMap.class, json);
+                if (Strings.isNotBlank(map.getString("openid"))) {
+                    Jscode2sessionResp resp = Lang.map2Object(map, Jscode2sessionResp.class);
                     return resp;
                 } else {
-                    NutMap resp = Json.fromJson(NutMap.class, json);
-                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+
+                    throw new Exception(Error.getError(map.getInt("errcode")).toString());
                 }
             }
         } catch (Exception e) {
