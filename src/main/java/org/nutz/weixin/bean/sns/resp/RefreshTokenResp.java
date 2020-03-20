@@ -5,7 +5,7 @@ package org.nutz.weixin.bean.sns.resp;
  *
  * @howechiang
  */
-public class RefreshTokenResp {
+public class RefreshTokenResp extends BaseResp {
 
     /**
      * 接口调用凭证

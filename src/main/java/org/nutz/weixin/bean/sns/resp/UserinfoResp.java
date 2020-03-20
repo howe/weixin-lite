@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @howechiang
  */
-public class UserinfoResp {
+public class UserinfoResp extends BaseResp {
 
     /**
      * 普通用户的标识，对当前开发者帐号唯一

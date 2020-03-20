@@ -1,8 +1,5 @@
 package org.nutz.weixin.bean.sns.req;
 
-import org.nutz.json.JsonField;
-import org.nutz.mvc.annotation.Param;
-
 /**
  * Created by Jianghao on 2018/3/5
  *
