@@ -5,7 +5,7 @@ package org.nutz.weixin.bean.mp.resp;
  *
  * @author Jianghao(howechiang @ gmail.com)
  */
-public class TokenResp {
+public class TokenResp extends BaseResp {
 
     /**
      * 	获取到的凭证

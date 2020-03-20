@@ -5,7 +5,7 @@ package org.nutz.weixin.bean.sns.resp;
  *
  * @howechiang
  */
-public class Jscode2sessionResp {
+public class Jscode2sessionResp extends BaseResp {
 
     /**
      * 用户唯一标识
