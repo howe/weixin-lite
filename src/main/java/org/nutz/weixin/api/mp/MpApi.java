@@ -9,6 +9,7 @@ import org.nutz.weixin.bean.mp.Error;
 import org.nutz.weixin.bean.mp.req.*;
 import org.nutz.weixin.bean.mp.resp.*;
 import org.nutz.weixin.util.HttpUtil;
+import org.nutz.weixin.util.Util;
 
 /**
  * 微信公众平台功能
@@ -463,6 +464,34 @@ public class MpApi {
                 String json = HttpUtil.post(Comm.API_GATE + Comm.MP_MESSAGE_TEMPLATE_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
                 if (json.indexOf("ok") >= 0) {
                     MessageTemplateSendResp resp = Json.fromJson(MessageTemplateSendResp.class, json);
+                    return resp;
+                } else {
+                    NutMap resp = Json.fromJson(NutMap.class, json);
+                    throw new Exception(Error.getError(resp.getInt("errcode")).toString());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw Lang.wrapThrow(e);
+        }
+    }
+
+    /**
+     * 下发小程序和公众号统一的服务消息
+     *
+     * @param req
+     * @return
+     */
+    public static UniformSendResp uniformSend(UniformSendReq req) {
+        try {
+            if (Strings.isBlank(req.getAccess_token())) {
+                throw new NullPointerException("access_token为空");
+            } else if (Util.isAllEmpty(req.getWeapp_template_msg(), req.getMp_template_msg())) {
+                throw new NullPointerException("小程序与公众号模块消息不能都为空");
+            } else {
+                String json = HttpUtil.post(Comm.API_GATE + Comm.MP_MESSAGE_WXOPEN_TEMPLATE_UNIFORM_SEND + "?access_token=" + req.getAccess_token(), Json.toJson(req));
+                if (json.indexOf("ok") >= 0) {
+                    UniformSendResp resp = Json.fromJson(UniformSendResp.class, json);
                     return resp;
                 } else {
                     NutMap resp = Json.fromJson(NutMap.class, json);

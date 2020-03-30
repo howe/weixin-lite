@@ -322,4 +322,72 @@ public class Util {
             throw Lang.wrapThrow(e);
         }
     }
+
+    /**
+     * 比对数组
+     *
+     * @param obj
+     * @param objs
+     * @return
+     */
+    public static boolean equals(Object obj, Object... objs) {
+        if (Lang.isEmpty(obj) || Lang.isEmpty(objs)) {
+            return false;
+        } else {
+            for (Object o : Arrays.asList(objs)) {
+                if (Lang.equals(obj, o)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public static boolean isOneEmpty(Object... objs) {
+        for (Object o : Arrays.asList(objs)) {
+            if (Lang.isEmpty(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isOneBlank(String... sts) {
+        if (Lang.isEmpty(sts)) {
+            return true;
+        } else {
+            for (String s : Arrays.asList(sts)) {
+                if (Strings.isBlank(s)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public static boolean isAllEmpty(Object... objs) {
+        if (Lang.isEmpty(objs)) {
+            return true;
+        } else {
+            for (Object o : Arrays.asList(objs)) {
+                if (Lang.isNotEmpty(o)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public static boolean isAllBlank(String... sts) {
+        if (Lang.isEmpty(sts)) {
+            return true;
+        } else {
+            for (String s : Arrays.asList(sts)) {
+                if (Strings.isNotBlank(s)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 }

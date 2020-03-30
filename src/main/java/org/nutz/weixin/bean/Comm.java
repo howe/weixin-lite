@@ -289,4 +289,9 @@ public class Comm {
      * 下发客服当前输入状态给用户。详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/customer-message/typing.html">客服消息输入状态</a>
      */
     public static String XCX_MESSAGE_CUSTOM_TYPING = "/cgi-bin/message/custom/typing";
+
+    /**
+     * 下发小程序和公众号统一的服务消息
+     */
+    public static String MP_MESSAGE_WXOPEN_TEMPLATE_UNIFORM_SEND = "/cgi-bin/message/wxopen/template/uniform_send";
 }
