@@ -31,6 +31,10 @@ public class Comm {
      */
     public static String OPEN_WORK_GATE = "https://open.work.weixin.qq.com";
 
+    public static String OPEN_GATE = "https://open.weixin.qq.com";
+
+    public static String CONNECT_OAUTH2_AUTHORIZE = "/connect/oauth2/authorize";
+
     /**
      * 通过code获取access_token
      */
