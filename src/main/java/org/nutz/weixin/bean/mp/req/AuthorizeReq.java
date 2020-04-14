@@ -71,4 +71,13 @@ public class AuthorizeReq {
     public void setState(String state) {
         this.state = state;
     }
+
+    public AuthorizeReq(String appid, String redirect_uri, String state) {
+        this.appid = appid;
+        this.redirect_uri = redirect_uri;
+        this.state = state;
+    }
+
+    public AuthorizeReq() {
+    }
 }
